@@ -1,0 +1,29 @@
+ <div class="article">
+ <hr><h2 class="title">Title :{{ info.title  | filter:searchTitle}}</h2> 
+<p class="category"> Catagory :{{ info.category  | filter:searchTitle}}</p>
+<p class="author"> Author :{{ info.user_name | filter:searchTitle }}</p>
+<p class="date">Date :{{ info.timestamp | date }} Time:{{ info.timestamp | date:'HH:mm:ss' }}</p>
+<p class="content">{{ info.content  | filter:searchTitle}}</p><hr>
+<div ng-controller="CommentController">
+<a href="" class="btn" ng-click="fetchComment()" ><p style="green">See comments</p></a>
+<div class="container" ng-repeat="comment in comments |filter:searchTitle" >
+          <comment-Info info="comment"></comment-Info><hr>
+</div>
+</div>
+<div id="{{info.id+1}}" class="hidden" ng-controller="createCommentController">
+<p class="date">Date :{{ info1.timestamp | date }}</p>
+<p class="author">{{info1.user_name}} :</p> <p class="comment">{{ info1.comment }}</p>   
+    
+</div>
+<a href="" ng-controller="CommentController" class="btn" ng-click="createComment()" ><p style="green">Add comment</p></a><hr>
+<div id="{{info.id}}" class="hidden" >
+    <form ng-controller="createCommentController">
+        <div class="form-group">
+          <textarea class="form-control status-box" rows="2" ng-model="comment" placeholder="What's on your mind?"></textarea>
+        </div>
+        <button  class="btn btn-primary btn-small" type="submit" ng-click="createCommentOnServer()">Comment</button>
+      </form>
+</div>
+</div>
+
+
