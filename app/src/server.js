@@ -37,3 +37,18 @@ app.get('/js/croute.js', function (req, res) {
 app.get('/pages/chome.html', function (req, res) {
   res.sendFile('pages/chome.html',{root});
 });
+app.get('/alokslack.jpg', function (req, res) {
+  res.sendFile('alokslack.jpg',{root});
+});
+app.get('/img/scroll2.jpg', function (req, res) {
+  res.sendFile('img/scroll2.jpg',{root});
+});
+app.get('/img/scroll1.jpg', function (req, res) {
+  res.sendFile('img/scroll1.jpg',{root});
+});
+app.get('/signup', function (req, res) {
+  res.sendFile('signup2.html',{root});
+});
+app.get('/signup.css', function (req, res) {
+  res.sendFile('signup.css',{root});
+});
