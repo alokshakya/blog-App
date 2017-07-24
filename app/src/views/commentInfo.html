@@ -1,4 +1,6 @@
-<div>
-<p class="date">Date :{{ info.timestamp | date }} Time:{{ info.timestamp | date:'HH:mm:ss' }}</p>
-<p class="author">{{info.user_name}} :</p> <p class="comment">{{ info.comment }}</p> 
+<div class="comment">
+
+  <strong><b><i  id="user">Author: {{info.name}}</i></b> </strong> {{info.content}}<br>
+  <button class="btn btn-link"><img class="image" src="img/like.png" ></button> {{info.likes}} &nbsp;&nbsp;<button class="btn btn-success btn-xs pull-center">Commensts</button> {{info.comments}}&nbsp;&nbsp;&nbsp;&nbsp;Time: {{info.created |date}}
+	
 </div>

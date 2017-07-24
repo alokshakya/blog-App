@@ -1,0 +1,115 @@
+.article{
+	margin-top: 10px;
+	margin-left: 5%;
+	margin-right: 5%;
+    padding: 20px 30px 10px 30px;
+    box-shadow: 10px 10px 5px #2C3E50;
+    border-radius: 25px;
+    background-color: #b2a3c6;
+}
+.article:hover,
+ .article:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.05s ease;
+  background-color: #273330;
+  color:green;
+
+}
+ .title{
+ 	
+        font-size: 34px;
+ }
+
+ .title:hover,
+ .title:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  color: blue;
+}
+ .author:hover,
+ .author:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  color: blue;
+}
+.category:hover,
+ .category:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  color: blue;
+}
+.date:hover,
+ .date:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  color: blue;
+}
+.content:hover,
+ .content:focus {
+  transition: 0.2s ease;
+  color: green;
+}
+ .author{
+ 	font-family: 'Playball', cursive;
+ 	font-size: 28px;
+ }
+ .category{
+ 	font-family: 'Diplomata', cursive;
+ 	font-size: 20px;
+ }
+ .date{
+ 	font-family: 'Lobster', cursive;
+ 	font-size: 24px;
+ }
+ .content {
+ 	font-family: 'Zilla Slab', serif;
+ 	font-size: 20px;
+ 	background-color: #ddd;
+ 	padding: 20px 30px 10px 30px;
+    box-shadow: 10px 10px 5px #2C3E50;
+    border-radius: 25px;
+ }
+ #Zilla{
+ 	font-family: 'Zilla Slab', serif;
+ 	font-size: 38px;
+ }
+ #Montserrat{
+ 	font-family: 'Montserrat', sans-serif;
+ 	font-size: 38px;
+ }
+ #Lobster{
+ 	font-family: 'Lobster', cursive;
+ 	font-size: 38px;
+ }
+ #Abril{
+ 	font-family: 'Abril Fatface', cursive;
+ 	font-size: 38px;
+ }
+ #Great{
+ 	font-family: 'Great Vibes', cursive;
+ 	font-size: 38px;
+ }
+ #Playball
+ {
+ 	font-family: 'Playball', cursive;
+ 	font-size: 38px;
+ }
+ #Diplomata{
+ 	font-family: 'Diplomata', cursive;
+ 	font-size: 38px;
+ }
+ #Merriweather{
+ 	font-family: 'Merriweather', serif;
+ 	font-size: 38px;
+ }
+ #Lora{
+ 	font-family: 'Lora', serif;
+ 	font-size: 38px;
+ }
+ .image{
+ 	height: 40px;
+ }
+ .image:hover{
+ 	height: 60px;
+ 	transition: 0.2s ease;
+ }

@@ -1,0 +1,13 @@
+.comment{
+ 	color: green;
+ 	font-size: 18px;
+ }
+ .comment:hover{
+ 	font-size: 22px;
+ }
+ #user{
+ 	color: black;
+ }
+  #user:hover{
+ 	color: #dfe29e;
+ }

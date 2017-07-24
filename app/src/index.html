@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable=no>
   <title>Blog App</title>
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="css/sidebar3.css"/>
+  <link rel="stylesheet" href="css/articleDisplay.css"/>
+  <link rel="stylesheet" href="css/commentDisplay.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Diplomata|Great+Vibes|Lobster|Montserrat|Playball|Lora|Merriweather|Zilla+Slab:400i" rel="stylesheet">
 
 </head>
-<body width=100%>
+<body>
     <!-- body content starts -->
 <div id="header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
@@ -18,7 +20,8 @@
         </button>
      
         <a class="navbar-brand" href="#">
-            Blog App
+            <div id="logo" style="font-family: 'Great Vibes', cursive;
+  font-size: 38px; color: #2440e2">Blog App</div>
         </a>
     </div>
     <nav class="collapse navbar-collapse">
@@ -54,15 +57,17 @@
      </div>
    </div>
    
-  <div id="main-wrapper" class="col-md-10 pull-center">
+  <div id="main-wrapper" >
+  <div class="col-md-10 col-md-offset-2">
           
             <div id="main">
-            <div ng-app="CApp">
+            <div ng-app="UserApp">
             <!-- Show ng-view here -->
             <ng-view></ng-view>
         </div>
        
         </div>
+   </div>
    </div>
           
             
@@ -74,13 +79,13 @@
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
     <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>  
-    
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/croute.js"></script>
-    <script type="text/javascript" src="js/controllers/Deposit.js"></script>
-    <script type="text/javascript" src="js/controllers/Withdraw.js"></script>
-    <script type="text/javascript" src="js/controllers/Transfer.js"></script>
-    <script type="text/javascript" src="js/controllers/GetAccount.js"></script>
-    <script type="text/javascript" src="js/controllers/GetStatement.js"></script>
-</body>
+    <script type="text/javascript" src="js/controllers/AllArticles.js"></script>
+    <script type="text/javascript" src="js/controllers/CommentController.js"></script>
+    <script src="js/directives/articleInfo.js"></script>
+    <script src="js/directives/commentInfo.js"></script> 
+
+    
+    </body>
 </html>

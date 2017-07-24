@@ -1,9 +1,8 @@
-var CApp = angular.module("UserApp", ['ngRoute']);
+var CApp = angular.module("CApp", ['ngRoute']);
 CApp.config(function($routeProvider) {
     $routeProvider
     .when('/home', {
-        templateUrl : 'pages/chome.html',
-        controller:'AllArticles'
+        templateUrl : 'pages/chome.html'
      
     })
     .when('/deposit', {

@@ -1,7 +1,7 @@
 var mainApp = angular.module("mainApp", ['ngRoute']);
 mainApp.config(function($routeProvider) {
     $routeProvider
-    .when('/home', {
+    .when('/', {
         templateUrl : 'pages/home.html',
         controller: 'application'
     })
@@ -34,7 +34,7 @@ mainApp.config(function($routeProvider) {
         controller: 'ViewAccount'
     })
     .otherwise({
-      redirectTo: '/home',
+      redirectTo: '/',
     });
     mainApp.controller('application',function($scope){
       $scope.message = "Welcome to Angularjs";
