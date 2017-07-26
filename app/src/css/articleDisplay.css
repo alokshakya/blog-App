@@ -1,11 +1,11 @@
 .article{
 	margin-top: 10px;
-	margin-left: 5%;
-	margin-right: 5%;
-    padding: 20px 30px 10px 30px;
-    box-shadow: 10px 10px 5px #2C3E50;
-    border-radius: 25px;
-    background-color: #b2a3c6;
+	margin-left: 2%;
+	margin-right: 3%;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 5px 5px 5px #2C3E50;
+  border-radius: 20px;
+  background-color: #b2a3c6;
 }
 .article:hover,
  .article:focus {
@@ -17,7 +17,7 @@
 }
  .title{
  	
-        font-size: 34px;
+        font-size: 30px;
  }
 
  .title:hover,
@@ -25,28 +25,33 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
   color: blue;
+  font-size: 34px;
 }
  .author:hover,
  .author:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
+  font-size: 32px;
   color: blue;
 }
 .category:hover,
  .category:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
+  font-size: 30px;
   color: blue;
 }
 .date:hover,
  .date:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
+  font-size: 28px;
   color: blue;
 }
 .content:hover,
  .content:focus {
   transition: 0.2s ease;
+  font-size: 22px;
   color: green;
 }
  .author{
@@ -54,8 +59,8 @@
  	font-size: 28px;
  }
  .category{
- 	font-family: 'Diplomata', cursive;
- 	font-size: 20px;
+ 	font-family: 'Zilla Slab', serif;
+ 	font-size: 26px;
  }
  .date{
  	font-family: 'Lobster', cursive;
@@ -65,9 +70,9 @@
  	font-family: 'Zilla Slab', serif;
  	font-size: 20px;
  	background-color: #ddd;
- 	padding: 20px 30px 10px 30px;
-    box-shadow: 10px 10px 5px #2C3E50;
-    border-radius: 25px;
+ 	padding: 5px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #2C3E50;
+    border-radius: 15px;
  }
  #Zilla{
  	font-family: 'Zilla Slab', serif;

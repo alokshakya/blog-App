@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable=no>
+  <title>Article Display</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/articleDisplay.css"/>
+  <link rel="stylesheet" href="css/commentDisplay.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Diplomata|Great+Vibes|Lobster|Montserrat|Playball|Lora|Merriweather|Zilla+Slab:400i" rel="stylesheet">
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+     
+ <!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+<!-- Optional theme -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>-->
+<!-- Latest compiled and minified JavaScript -->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+    <script src="js/ng-infinite-scroll.min.js"></script>-->
+
+<style type="text/css">
+.logo{
+  font-family: 'Great Vibes', cursive;
+  font-size: 38px; color: #2440e2;
+}
+.logo:hover{
+  font-size: 44px;
+}
+#userphoto{
+  color: green;
+}
+
+#userphoto:hover{
+  font-size: 20px;
+}
+#userphoto.img:hover{
+  height: 50px;
+}
+.side{
+	position: fixed;
+  background: #2C3E50;
+  padding: 10px 0 0px 0;
+  margin-left: -25px;
+  margin-right: -40px;
+  width: 17%;
+
+}
+#sidebar-wrapper {
+    height: 100%;
+    padding: 50px 0 0px 0;
+    position: fixed;
+    border-right: 1px solid gray;
+    background: #2C3E50;
+}
+
+.sidebar-nav{
+	padding: 0;
+	list-style: none;
+
+}
+.sidebar-nav li{
+	text-indent: 30px;
+	line-height: 60px;
+    font-size: 14px;
+}
+.sidebar-nav li a{
+	display: block;
+	text-decoration: none;
+	color: #198e31; 
+}
+.sidebar-nav li a:hover{   
+    font-size: 20px;
+    margin-left: -4px;
+}
+
+
+
+@media screen only and (min-width: 768px)
+{
+	
+}
+
+</style>
+
+</head>
+<body ng-app="UserApp">
+<!--navbar starts  -->
+<div id="header" class="navbar navbar-default navbar-fixed-top hidden-xs">
+    <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <i class="icon-reorder"></i>
+        </button>
+     
+        <a class="navbar-brand" href="#">
+            <div class="logo"  >Blog App</div>
+        </a>
+    </div>
+    <nav class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav pull-right">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#add">Add Article</a></li>
+        <li><a href="#activity">Recent Activity</a></li>
+        <li><a href="#" ng-controller="AuthController" ng-click="auth.logout()">Logout</a></li>
+        <div ng-show="auth.logout_error_condition" style="color: red; font-size: 16px;">{{auth.logout_error}}</div>
+           
+        </ul>
+    </nav>
+</div>
+<!--navbar end  -->
+
+
+
+
+
+                  <div class="navbar navbar-default visible-xs">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand logo" href="/"><div id="logo" style="font-family: 'Great Vibes', cursive;
+  font-size: 38px; color: #2440e2">Blog App</div></a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#add">Add Article</a></li>
+        <li><a href="#activity">Recent Activity</a></li>
+                        
+        <li><a href="#getAcc">Trending</a></li>
+        <li><a href="#deposit">Popular</a></li>
+        <li><a href="#withdraw">Technology</a></li>
+        <li><a href="#transfer">Business</a></li>
+        <li><a href="#getStatement">Sports</a></li>
+        <li><a href="#getStatement">Questions</a></li>
+        <li><a href="#getStatement">Other</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+      <div class="container-fluid">
+  <div class="row">
+    
+    <div class="hidden-xs col-md-2 col-sm-3 " style="margin-top: 50px">
+<div class="side">
+      <!--  <aside> -->
+  <div id="sidebar">
+            <div id="userphoto">
+              <p align="center"><img src="img/alokslack.jpg" class="img img-responsive img-circle"></p>
+              <p align="center" style="color:green">Welcome Alok Kumar</p>
+            </div>
+      <ul class="sidebar-nav">
+        <li><a href="#trending">Trending</a></li>
+        <li><a href="#popular">Popular</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#questions">Questions</a></li>
+        <li><a href="#other">Other</a></li>
+      
+      </ul>   
+     </div>
+   </div>
+<!--  </aside> -->
+</div>
+    </div>
+    <div class="col-md-10 col-sm-9 col-md-offset-2 col-sm-offset-3">
+      <div>
+            <!-- Show ng-view here -->
+            <ng-view></ng-view>
+            </div>
+
+      <footer class="row">
+      <div class="col-ms-12 text-center">
+            <hr/>
+            
+                              
+            &copy; 2017 - Alok Shakya. Powered By Hasura<br/>
+            
+      </div>
+</footer>
+    </div>  
+  </div> <!-- row -->
+</div> <!-- container -->
+
+<!-- body content ends -->
+        
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/ngStorage.min.js"></script>
+    <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
+
+    
+    
+    
+
+    <script src="js/bootstrap.min.js"></script>
+  
+    <script type="text/javascript" src="js/croute.js"></script>
+    <script type="text/javascript" src="js/controllers/AllArticles.js"></script>
+    <script type="text/javascript" src="js/controllers/CommentController.js"></script>
+    <script src="js/directives/articleInfo.js"></script>
+    <script src="js/directives/commentInfo.js"></script>
+    <script type="text/javascript" src="js/controllers/AddArticle.js"></script>
+    <script type="text/javascript" src="js/services/Auth.js"></script>
+    <script type="text/javascript" src="js/services/Data.js"></script>
+    <script type="text/javascript" src="js/controllers/AuthController.js"></script>
+    <script type="text/javascript" src="js/controllers/DataController.js"></script>
+
+
+
+
+
+   </body>
+</html>

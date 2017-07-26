@@ -223,7 +223,7 @@ button.social-signin.google {
 }
 
 </style>
-<body>
+<body ng-app="UserApp">
     <!-- body content starts -->
 <div id="header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
@@ -244,20 +244,19 @@ button.social-signin.google {
     <nav class="collapse navbar-collapse">
 
         <ul class="nav navbar-nav pull-right">
-        <div id="login-form">
+        <div id="login-form" ng-controller="AuthController">
 <form class="form-inline">
   <div class="form-group">
     <label for="email"><p style="color:green">Email address:</p></label>
-    <input type="email" class="form-control" id="email">
+    <input type="email" class="form-control" id="email" ng-model="user.email">
   </div>
   <div class="form-group">
     <label for="pwd"><p style="color:green">Password:</p></label>
-    <input type="password" class="form-control" id="pwd">
+    <input type="password" class="form-control" id="pwd" ng-model="user.password">
   </div>
-  <div class="checkbox">
-    <label><p style="color:green"><input type="checkbox"> Remember me</p></label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <button type="submit" class="btn btn-primary" ng-click="auth.login(user)">Submit</button>
+  <div ng-show="auth.login_error_condition" style="color: red; font-size: 16px;">{{auth.login_error}}</div>
 </form>  
             </div>
         </ul>
@@ -267,17 +266,19 @@ button.social-signin.google {
 <div id="page-content">
 <div class="row">
   <div class="col-md-6 col-md-push-6">
+  <button ng-controller="AuthController" ng-click="auth.logout()">Logout</button>
        <div id="sign-up-form">
 <div id="login-box">
-  <div class="left">
+  <div class="left" ng-controller="AuthController">
     <h1>Sign up</h1>
     
-    <input type="text" name="name" placeholder="Name" />
-    <input type="text" name="email" placeholder="E-mail" />
-    <input type="password" name="password" placeholder="Password" />
+    <input type="text" name="name" ng-model="user.name" placeholder="Name" />
+    <input type="text" name="email" ng-model="user.email" placeholder="E-mail" />
+    <input type="password" name="password" ng-model="user.password" placeholder="Password" />
     <input type="password" name="password2" placeholder="Retype password" />
     
-    <input type="submit" name="signup_submit" value="Sign me up" />
+    <input type="submit" name="signup_submit" ng-click="auth.signup(user)" value="Sign me up" />
+    <div ng-show="auth.signup_error_condition" style="color: red; font-size: 16px;">{{auth.signup_error}}</div>
   </div>
   
   <div class="right">
@@ -294,7 +295,7 @@ button.social-signin.google {
   </div>
   <div class="col-md-6 col-md-pull-6">
         <div id="article-content">
-             <div ng-app="UserApp" ng-controller="AllArticles">
+             <div ng-controller="AllArticles">
                   <div ng-repeat="article in dep.articles">
         <!--  <article-Info info="article"></article-Info><hr>  -->
         
@@ -315,6 +316,8 @@ button.social-signin.google {
     <!-- body content ends -->
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/ngStorage.min.js"></script>
+    <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
 
     <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>  
@@ -324,6 +327,14 @@ button.social-signin.google {
     <script type="text/javascript" src="js/controllers/CommentController.js"></script>
     <script src="js/directives/articleInfo.js"></script>
     <script src="js/directives/commentInfo.js"></script>
+    <script type="text/javascript" src="js/services/Auth.js"></script>
+    <script type="text/javascript" src="js/services/Data.js"></script>
+    <script type="text/javascript" src="js/controllers/AuthController.js"></script>
+    <script type="text/javascript" src="js/controllers/AuthController.js"></script>
+
+
+
+    
     
 </body>
 </html>

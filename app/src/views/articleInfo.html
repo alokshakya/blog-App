@@ -8,19 +8,18 @@
 		      	</div>
 		      	<div class="date"> Published: {{info.created |date}}
 		      	</div>
-		      	<div class="content">
-		      		{{info.content}} <button class="btn btn-success">Read More >></button>
+		      	<div class="content" ng-controller="AllArticles">
+		      		{{info.content}} <button class="btn btn-success" ng-click="dep.fetchArticle(info)" ng-show="dep.readmore">Read More >></button>
 		      	</div>
 		      	<hr>
 		      	<div ng-controller="CommentController">
 		      	<div class="likes">
-		      		<a><img class="image" src="img/like.png" ></a>{{info.likes}} <button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.name)">Commensts {{info.comments}}</button>
+		      		<a><img class="image btn btn-link" src="img/like.png" ></a>{{info.likes}} <button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.name)">Commensts {{info.comments}}</button>
 		      	</div>
 		      	
                   <div ng-show="dep.available" ng-repeat="comment in dep.comments">
-        <!--  <article-Info info="article"></article-Info><hr>  -->
-                  Author: {{comment.name}}
-                  Comment Content : {{comment.content}}
+       
+                  <comment-Info comment="comment"></comment-Info>
                   
 
                   <!--<article-Info info="article"></article-Info><hr> --> 

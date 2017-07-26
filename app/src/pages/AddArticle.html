@@ -1,0 +1,59 @@
+<style type="text/css">
+.form-title{
+  font-size: 32px;
+  color: blue;
+  font-style: bold;
+}
+.Title
+{
+  font-size: 20px;
+  font-family: 'Zilla Slab', serif;
+  color: green;
+}
+</style>
+<div ng-show="add.succ"> <p aligh="center" style="color:blue"> {{add.message}} </p> </div>
+<div class="container" ng-show="add.form">
+<p class="col-md-10 col-sm-9 col-xs-12 form-title" align="center" class="h3" text="centre"> Publish New Article </p>
+<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <form name="CCForm" ng-submit="add.addArticle(article)" novalidate>
+    <!-- Title -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.title.$invalid && !CCForm.title.$pristine }">
+    <label for="title" class="Title">Title</label>
+    <textarea class="Title" ng-model="article.title" name="title" rows="2" cols="50" ng-minlength="10"required></textarea>
+    <p ng-show="CCForm.title.$error.minlength" class="help-block">Title is too short to publish add atleast 10 letters.</p>
+    <p ng-show="CCForm.title.$invalid && !CCForm.title.$pristine" class="help-block">Title is required.</p>
+    
+  </div>
+  <!-- Category -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.category.$invalid && !CCForm.category.$pristine }">
+    <label for="category" class="Title">Category</label>
+    <select name="category" ng-model="article.category" required>
+    <option class="Title" value="Technology">Technology</option>
+    <option class="Title" value="Business">Business</option>
+    <option class="Title" value="Sports">Sports</option>
+    <option class="Title" value="Questions">Questions</option>
+    <option class="Title" value="Others">Others</option>
+    </select>
+    <p ng-show="CCForm.category.$invalid && !CCForm.category.$pristine" class="help-block">Category is required.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="form-group" ng-class="{ 'has-error' : CCForm.content.$invalid && !CCForm.content.$pristine }">
+    <label for="content" class="Title">Content</label>
+    <textarea class="Title" ng-model="article.content" name="content" rows="15" cols="50" ng-minlength="500"required></textarea>
+    <p ng-show="CCForm.content.$error.minlength" class="help-block">Content is too short to publish add atleast 50 words.</p>
+    <p ng-show="CCForm.content.$invalid && !CCForm.content.$pristine" class="help-block">Content is required.</p>
+    
+  </div>
+
+  
+  
+  <button   type="submit" class="btn btn-primary" ng-disabled="CCForm.$invalid">Post</button>
+  <button type="reset" class="btn btn-primary">Reset Fields</button>
+  <div ng-show="add.adding"><img alt="Posting ...." src="img/loading.gif">Posting ....</div>
+</form>
+
+</div>
+
+	
+</div>

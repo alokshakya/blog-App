@@ -38,9 +38,14 @@ CApp.controller("CommentController", function ($scope, $http, $templateCache) {
             $scope.dep.comments.push($scope.dep.c[i]);
               console.log($scope.dep.c[i]);
          }
-         if($scope.comments.length>0)
+         if($scope.dep.comments.length>0)
          {
           $scope.dep.available=true;
+         }
+         console.log('now comments object');
+         for (var i = 0; i < $scope.dep.comments.length; i++) {
+            
+              console.log($scope.dep.comments[i]);
          }
      /* $scope.code = null;
       $scope.response = null;

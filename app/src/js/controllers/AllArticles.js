@@ -1,5 +1,6 @@
 CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
      $scope.dep={};
+     $scope.dep.readmore=true;
      $scope.dep.comments=
      [
      {
@@ -152,8 +153,8 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
 
     //function for fetching comments of particular article_id
         $scope.dep.fetchComment= function(){
-          alert('fetchComment pressed');
-          alert('article id is :'+article_id);
+         // alert('fetchComment pressed');
+          //alert('article id is :'+article_id);
           console.log('article id is :'+article_id);
 
       var selectquery=
@@ -191,6 +192,46 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
           $scope.data = response.data || 'Request failed';
           $scope.status = response.status;
       });
+    };
+    // function for fetching particular Articular details
+    $scope.dep.fetchArticle = function(info){
+      alert('fetchArticle pressed and name  is :'+info.name);
+          console.log('article id is :'+info.name);
+
+      var selectquery=
+{
+  "type": "select",
+  "args":{
+    "table":"article",
+    "columns":[
+        "content"  
+      ],
+      "where":{"article_id":name}
+      
+  }
+};
+$scope.info.content="As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.As the placement season is back so are we to help you ace the interview. We have selected some most commonly asked and must do practice problems for you. We recommend to practice these and ace the coding round with confidence. Happy Coding.";
+      $scope.dep.readmore=false;
+      /*$http({method: 'POST', url: 'http://data.c100.hasura.me/v1/query', data:selectquery, cache: $templateCache}).
+        then(function(response) {
+          $scope.status = response.status;
+          if(response.data.length===0){
+              $scope.article.busy=false;
+              $scope.article.end=true;
+              return;
+          }
+          $scope.info.content=response.data;
+          //loading 5 articles at a time.
+          for (var i = 0; i < response.data.length; i++) {
+           $scope.dep.articles.push(response.data[i]);
+        } 
+          
+         
+        }, function(response) {
+          $scope.data = response.data || 'Request failed';
+          $scope.status = response.status;
+      });*/
+
     };
       
 });
