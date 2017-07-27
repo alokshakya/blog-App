@@ -6,7 +6,10 @@ CApp.controller("AddArticle",
      $scope.add.form=true;
      $scope.add.adding=false;
      $scope.add.succ=false;
+     alert('value of user_id inside add article controller : '+$localStorage.user_details.hasura_id);
      $scope.add.addArticle = function(article){
+      alert('AddArticle pressed');
+      alert('value of user_id inside add article : '+$localStorage.user_details.hasura_id);
       var data=
 {
   "type": "insert",
@@ -21,6 +24,7 @@ CApp.controller("AddArticle",
       }]
   }
 };
+
       
     Data.addArticle(data)
             .success(function (success) {

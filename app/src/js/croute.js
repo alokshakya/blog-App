@@ -45,7 +45,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
             return {
                 'request': function (config) {
                     config.headers = config.headers || {};
-                    //alert('value of $localStorage.auth_token in interceptor '+$localStorage.auth_token);
+                    alert('value of $localStorage.auth_token in interceptor '+$localStorage.auth_token);
                     if ($localStorage.auth_token) {
                         config.headers.Authorization = 'Bearer ' + $localStorage.auth_token;
                     }

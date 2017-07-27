@@ -9,13 +9,10 @@ app.listen(8080, function () {
 });
 // link on home page sending file
 app.get('/', function (req, res) {
-  res.sendFile('index.html',{root});
+  res.sendFile('signup2.html',{root});
 });
 
-//send signup page
-app.get('/sign.html' , function (req, res) {
-  res.sendFile('signup2.html' ,{root});
-});
+
 // sending bootstrap css file
 app.get('/css/bootstrap.min.css', function (req, res) {
   res.sendFile('css/bootstrap.min.css',{root});
@@ -62,9 +59,9 @@ app.get('/img/scroll2.jpg', function (req, res) {
 app.get('/img/scroll1.jpg', function (req, res) {
   res.sendFile('img/scroll1.jpg',{root});
 });
-app.get('/signup', function (req, res) {
+/*app.get('/signup', function (req, res) {
   res.sendFile('signup2.html',{root});
-});
+});*/
 app.get('/signup.css', function (req, res) {
   res.sendFile('signup.css',{root});
 });
