@@ -1,6 +1,6 @@
 CApp.controller("DataController",
-  ['$scope','$rootScope','$http','$templateCache','$location', '$localStorage', '$window','Data',
-  function ($scope,$rootScope, $http, $templateCache,$location, $localStorage, $window, Data) {
+  ['$scope','$rootScope','$http','$templateCache','$location', '$localStorage', '$window','Data','AuthService','Auth',
+  function ($scope,$rootScope, $http, $templateCache,$location, $localStorage, $window, Data,AuthService,Auth) {
     $scope.data={};
     $scope.data.all_articles=[];
     $scope.data.technology_articles=[];
@@ -10,6 +10,10 @@ CApp.controller("DataController",
     $scope.data.other_articles=[];
     $scope.data.popular_articles=[];
     $scope.data.trending_articles=[];
+    $scope.data.user_id=AuthService.getUserId();
+    $scope.data.id=Auth.getUserId();
+    
+
 
 //define variables for ng-show for all functions
     $scope.data.all_articles.busy=false;
@@ -17,8 +21,6 @@ CApp.controller("DataController",
     $scope.data.all_articles.loading=false;
 
 
-    // put one article custom value
-    $localStorage.user_details={};
     
     $scope.data.allArticles = function(){
       var selectquery=
@@ -103,7 +105,37 @@ CApp.controller("DataController",
             });
   };
 
- 
+ $scope.data.addLike = function(article_id){
+  alert('like pressed for article_id '+article_id);
+  var likedata=
+{
+  "type": "insert",
+  "args":{
+    "table":"article_like",
+    "objects":[
+      {
+        "user_id":$scope.data.user_id,
+      "article_id":article_id
+      }]
+  }
+};
+              Data.addLike(likedata)
+              .success(function (success) {
+              console.log('succ '+success);
+             // requst succes
+
+            })
+            .error(function (error) {
+              //requst failed
+                $scope.status = 'Unable to post article: ' + error.message;
+                $scope.add.error='Server Error';
+                $scope.add.adding=false;
+                console.log('err '+$scope.status);
+                console.log(error);
+            });
+
+
+ };
       
         
       

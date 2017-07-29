@@ -142,6 +142,8 @@
         <li><a href="#getStatement">Sports</a></li>
         <li><a href="#getStatement">Questions</a></li>
         <li><a href="#getStatement">Other</a></li>
+        <li><a href="#" ng-controller="AuthController" ng-click="auth.logout()">Logout</a></li>
+        <div ng-show="auth.logout_error_condition" style="color: red; font-size: 16px;">{{auth.logout_error}}</div>
                         
                     </ul>
                 </div>
@@ -212,6 +214,7 @@
     <script src="js/directives/commentInfo.js"></script>
     <script type="text/javascript" src="js/controllers/AddArticle.js"></script>
     <script type="text/javascript" src="js/services/Auth.js"></script>
+    <script type="text/javascript" src="js/services/AuthService.js"></script>
     <script type="text/javascript" src="js/services/Data.js"></script>
     <script type="text/javascript" src="js/controllers/AuthController.js"></script>
     <script type="text/javascript" src="js/controllers/DataController.js"></script>

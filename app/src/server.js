@@ -9,8 +9,10 @@ app.listen(8080, function () {
 });
 // link on home page sending file
 app.get('/', function (req, res) {
-  res.sendFile('signup2.html',{root});
+  res.sendFile('ui.html',{root});
 });
+// link on home page sending file
+
 
 
 // sending bootstrap css file
@@ -48,6 +50,10 @@ app.get('/js/croute.js', function (req, res) {
 // sending chome page for home in routing template
 app.get('/pages/chome.html', function (req, res) {
   res.sendFile('pages/chome.html',{root});
+});
+// sending login.html page for home in routing template
+app.get('/pages/login.html', function (req, res) {
+  res.sendFile('pages/login.html',{root});
 });
 // sending user image 
 app.get('/img/alokslack.jpg', function (req, res) {
@@ -102,10 +108,12 @@ app.get('/css/articleDisplay.css' , function (req, res) {
 app.get('/css/commentDisplay.css' , function (req, res) {
   res.sendFile('css/commentDisplay.css' ,{root});
 });
+/*
 //server ui.html
 app.get('/ui.html' , function (req, res) {
   res.sendFile('ui.html' ,{root});
 });
+*/
 //send Add article File
 app.get('/js/controllers/AddArticle.js' , function (req, res) {
   res.sendFile('js/controllers/AddArticle.js' ,{root});
@@ -126,6 +134,9 @@ app.get('/js/ngStorage.min.js' , function (req, res) {
 app.get('/js/services/Auth.js' , function (req, res) {
   res.sendFile('js/services/Auth.js' ,{root});
 });
+app.get('/js/services/AuthService.js' , function (req, res) {
+  res.sendFile('js/services/AuthService.js' ,{root});
+});
 app.get('/js/services/Data.js' , function (req, res) {
   res.sendFile('js/services/Data.js' ,{root});
 });
@@ -136,8 +147,4 @@ app.get('/js/controllers/AuthController.js' , function (req, res) {
 // send DataController file
 app.get('/js/controllers/DataController.js' , function (req, res) {
   res.sendFile('js/controllers/DataController.js' ,{root});
-});
-//send ng-infinite-scroll.min.js 
-app.get('/js/ng-infinite-scroll.min.js' , function (req, res) {
-  res.sendFile('js/ng-infinite-scroll.min.js' ,{root});
 });

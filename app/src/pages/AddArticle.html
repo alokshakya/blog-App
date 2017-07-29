@@ -11,6 +11,7 @@
   color: green;
 }
 </style>
+
 <div ng-show="add.succ"> <p aligh="center" style="color:blue"> {{add.message}} </p> </div>
 <div class="container" ng-show="add.form">
 <p class="col-md-10 col-sm-9 col-xs-12 form-title" align="center" class="h3" text="centre"> Publish New Article </p>
@@ -56,4 +57,24 @@
 </div>
 
 	
+</div>
+<div ng-show="add.preview_loading"><img alt="Loading Preview ...." src="img/loading.gif">Loading Preview ....
+</div>
+<div ng-show="add.preview">
+<div class="article">
+            <div class="title">Title :{{add.preview_data.title}}
+            </div>
+            <div class="author"> Author :{{add.preview_data.name}}
+              
+            </div>
+            <div class="category">Category:{{add.preview_data.category}}
+            </div>
+            <div class="date"> Published: {{add.preview_data.created |date}}
+            </div>
+            <div class="content" ng-controller="AllArticles">
+              {{add.preview_data.content}} 
+            </div>
+           
+</div>
+  
 </div>

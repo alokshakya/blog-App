@@ -1,0 +1,60 @@
+
+
+
+    <!-- body content starts -->
+   <!-- div id login form form -->
+<button class="btn btn-succuss" ng-click="auth.showSignUp()">SignUp</button>  OR
+<button class="btn btn-succuss" ng-click="auth.showLogin()">Log In</button>
+  
+  <div ng-show="auth.login_form" id="login-form">
+  <h1>Log In</h1>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="email"><p style="color:green">Email address:</p></label>
+    <input type="email" class="form-control" id="email" ng-model="user.email">
+  </div>
+  <div class="form-group">
+    <label for="pwd"><p style="color:green">Password:</p></label>
+    <input type="password" class="form-control" id="pwd" ng-model="user.password">
+  </div>
+
+  <button type="submit" class="btn btn-primary" ng-click="auth.login(user)">Submit</button>
+  <div ng-show="auth.login_error_condition" style="color: red; font-size: 16px;">{{auth.login_error}}</div>
+</form>  
+</div>
+<!-- div id sign up form -->
+<div ng-show="auth.signup_form" id="sign-up-form">
+  <h1>Sign Up</h1>
+    
+    <form>
+    <input type="text" name="name" ng-model="user.name" placeholder="Name" />
+    <input type="text" name="email" ng-model="user.email" placeholder="E-mail" />
+    <input type="password" name="password" ng-model="user.password" placeholder="Password" />
+    <input type="password" name="password2" placeholder="Retype password" />
+    
+    <input type="submit" name="signup_submit" ng-click="auth.signup(user)" value="Sign me up" />
+    <div ng-show="auth.signup_error_condition" style="color: red; font-size: 16px;">{{auth.signup_error}}</div>
+</form>
+</div>
+<!-- div id article content -->
+
+        
+             <div ng-controller="AllArticles">
+                  <div ng-repeat="article in dep.articles">
+        <!--  <article-Info info="article"></article-Info><hr>  -->
+        
+                  <article-Info info="article"></article-Info><hr>  
+
+          
+                  </div>
+                  <hr>
+             </div>
+  
+        
+          
+
+
+
+
+    <!-- body content ends -->
+

@@ -8,6 +8,19 @@ Data.addArticle = function(data){
 
     return $http.post(baseUrl,data);
 };
+Data.addLike = function(data){
+
+    return $http.post(baseUrl,data);
+};
+Data.addEmptyComment = function(data){
+
+    return $http.post(baseUrl,data);
+};
+
+Data.fetchArticle = function(data){
+
+    return $http.post(baseUrl,data);
+};
 Data.allArticles = function(data){
     console.log('data inside allArticles Data.js service '+data);
     console.log('data.args.columns inside allArticles Data.js service '+data.args.columns);

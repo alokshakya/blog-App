@@ -14,7 +14,7 @@
 		      	<hr>
 		      	<div ng-controller="CommentController">
 		      	<div class="likes">
-		      		<a><img class="image btn btn-link" src="img/like.png" ></a>{{info.likes}} <button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.name)">Commensts {{info.comments}}</button>
+		      		<a><img class="image btn btn-link" src="img/like.png" ng-controller="DataController" ng-click="data.addLike(info.article_id)"></a>{{info.likes-1}} <button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.name)">Commensts {{info.comments-1}}</button>
 		      	</div>
 		      	
                   <div ng-show="dep.available" ng-repeat="comment in dep.comments">
