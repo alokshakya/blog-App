@@ -87,7 +87,7 @@ CApp.controller("DataController",
   };
   // logout function
   $scope.data.trending_articles = function(user)  {
-    alert('Logout pressed');
+
     Data.trendingArticles()
             .success(function (success) {
               

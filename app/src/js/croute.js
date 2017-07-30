@@ -44,7 +44,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
     .otherwise({
       redirectTo: '/home',
     });
-
+/*
     //$httpProvider code here to setup authentication bearer in each request
     $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function($q, $location, $localStorage) {
             return {
@@ -61,7 +61,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
                        alert('$localStorage.auth_token is null deleted heders headers');
                     } */
                     
-                   
+                /*   
                     return config;
                 },
                 
@@ -84,6 +84,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
                 }
             };
         }]);
+      */
  
 }]);
 

@@ -45,14 +45,10 @@ $scope.auth.login_form=false;
               //store auth token in local storage using ngStorage
               $scope.auth.signup_error_condition=true;
               $scope.auth.signup_error=response.data.message;
-              $window.location.href='/#/home';
 
         }, function(response) {
-          $scope.data = response.data || 'Request failed';
-          $scope.status = response.status;
           $scope.auth.signup_error_condition=true;
           $scope.auth.signup_error=response.data.message;
-          console.log('error message '+response.data.message);
 
       });
 
@@ -60,23 +56,25 @@ $scope.auth.login_form=false;
     }; 
     //login functioin
   $scope.auth.login = function(user)  {
+    alert('email '+user.email);
+    alert('password '+user.password);
     var data={"email":user.email,"password":user.password};
     //AuthService.login(data);
     AuthService.login(data)
-    .then(function(response) {
-             $scope.auth.logout_error_condition=true;
-             alert('login succ response in controller '+response.message);
-             $scope.auth.logout_error=response.message;
-
-        }, function(response) {
-          alert('Inside failed login in controller ');
-
-          $scope.data = response.data || 'Request failed';
-          $scope.status = response.status;
-          $scope.auth.logout_error_condition=true;
-          $scope.auth.logout_error=response.message;
-          console.log('error message '+response.message);
-      });    
+    .then(function successCallback(response) {
+    // this callback will be called asynchronously
+    alert('inside login successCallback in controller ');
+    $scope.auth.login_error_condition=true;
+    $scope.auth.login_error=response.data.message;
+ 
+    // $window.location.href='/#/home';
+  // return $window.location.href='/#/home';
+  
+    // when the response is available
+  }, function errorCallback(response) {
+      alert('inside login errorCallback message in controller');
+    
+  });    
           
             
   };
@@ -86,8 +84,8 @@ $scope.auth.login_form=false;
     AuthService.logout()
             .then(function(response) {
              $scope.auth.logout_error_condition=true;
-             alert('logout response in controller '+response.message);
-             $scope.auth.logout_error=response.message;
+             alert('logout response in controller '+response.data.message);
+             $scope.auth.logout_error=response.data.message;
 
         }, function(response) {
           alert('Inside failed logout');
@@ -95,10 +93,10 @@ $scope.auth.login_form=false;
           $scope.data = response.data || 'Request failed';
           $scope.status = response.status;
           $scope.auth.logout_error_condition=true;
-          $scope.auth.logout_error=response.message;
-          console.log('error message '+response.message);
+          $scope.auth.logout_error=response.data.message;
+          console.log('error message '+response.data.message);
       });
-            alert('logout in AuthController and er by $localStorage '+$localStorage.logout.message);
+            
   };
 
 }]);

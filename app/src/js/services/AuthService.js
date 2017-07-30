@@ -1,4 +1,4 @@
-CApp.service('AuthService', function($q, $http, USER_ROLES,) {
+CApp.service('AuthService', function($q, $http, USER_ROLES) {
  //var LOCAL_USER_DETAILS = 'user_details';
  var BearerToken ='auth_token';
   var isAuthenticated = false;
@@ -41,17 +41,17 @@ CApp.service('AuthService', function($q, $http, USER_ROLES,) {
     return  $http.post(baseUrl+'/login',data)
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-    alert('inside login successCallback token '+response.data.auth_token);
+    alert('inside login successCallback token in service '+response.data.auth_token);
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
-    
-    
-    return {"message":"Login Success full by server"};
+    window.location.href='#home';
+  // return $window.location.href='/#/home';
     // when the response is available
+    return response;
   }, function errorCallback(response) {
-alert('inside login errorCallback message '+response.data.message);
-       return {"message":"Login failed by server"};
+      alert('inside login errorCallback message in service '+response.data.message);
+      return response;
   });
         //storeUserCredentials(name + '.yourServerToken');
         
@@ -64,22 +64,18 @@ alert('inside login errorCallback message '+response.data.message);
     return  $http.post(baseUrl+'/signup',data)
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-    alert('inside signup successCallback token '+response.data.auth_token);
+    //alert('inside signup successCallback token '+response.data.auth_token);
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
+    window.location.href='/#/home';
     
-    
-    return {"message":"SignUp Successfully"};
+    return response;
     // when the response is available
   }, function errorCallback(response) {
-alert('inside login errorCallback message '+response.data.message);
+      //alert('inside login errorCallback message '+response.data.message);
        return response;
   });
-        //storeUserCredentials(name + '.yourServerToken');
-        
-      
-       
   
   };
  
@@ -92,15 +88,17 @@ alert('inside login errorCallback message '+response.data.message);
    // $http.defaults.headers.common['Authorization'] = undefined;
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
+    window.location.href='/#/login';
 
-       return {"message":"Logout Successfully by server"};
+    return response;
     // when the response is available
   }, function errorCallback(response) {
     alert('AuthService logged out server errorCallback');
     //if request is also cancealed give success logout message
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
-     return {"message":"Logout Successfully"};
+    window.location.href='/#/login';
+     return response;
      
   });
   };
