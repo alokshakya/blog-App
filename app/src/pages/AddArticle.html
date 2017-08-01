@@ -2,7 +2,8 @@
 .form-title{
   font-size: 32px;
   color: blue;
-  font-style: bold;
+  font-style: bolder;
+  font-weight: 900;
 }
 .Title
 {
@@ -10,25 +11,59 @@
   font-family: 'Zilla Slab', serif;
   color: green;
 }
-</style>
+@media only screen and (max-width: 893px)
+{
+  .form-title{
+  font-size: 24px;
+}
+.Title
+{
+  font-size: 16px;
+}
 
+}
+@media only screen and (max-width: 690px)
+{
+  .form-title{
+  font-size: 16px;
+}
+.Title
+{
+  font-size: 12px;
+}
+
+}
+@media only screen and (max-width: 400px)
+{
+  .form-title{
+  font-size: 12px;
+}
+.Title
+{
+  font-size: 8px;
+}
+
+}
+</style>
+<br><br>
+<div ng-show="add.adding">
+<img src="img/loading.gif">
+  
+</div>
 <div ng-show="add.succ"> <p aligh="center" style="color:blue"> {{add.message}} </p> </div>
-<div class="container" ng-show="add.form">
-<p class="col-md-10 col-sm-9 col-xs-12 form-title" align="center" class="h3" text="centre"> Publish New Article </p>
-<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-    <form name="CCForm" ng-submit="add.addArticle(article)" novalidate>
-    <!-- Title -->
+<form ng-show="add.form" name="CCForm" ng-submit="add.addArticle(article)" novalidate>
+  <div>
+    <p  class="form-title" align="center">Publish Your Article</p>
+  </div>
   <div class="form-group" ng-class="{ 'has-error' : CCForm.title.$invalid && !CCForm.title.$pristine }">
     <label for="title" class="Title">Title</label>
-    <textarea class="Title" ng-model="article.title" name="title" rows="2" cols="50" ng-minlength="10"required></textarea>
+    <textarea class="Title form-control" ng-model="article.title" name="title" rows="2" cols="50" ng-minlength="10"required></textarea>
     <p ng-show="CCForm.title.$error.minlength" class="help-block">Title is too short to publish add atleast 10 letters.</p>
     <p ng-show="CCForm.title.$invalid && !CCForm.title.$pristine" class="help-block">Title is required.</p>
-    
   </div>
-  <!-- Category -->
   <div class="form-group" ng-class="{ 'has-error' : CCForm.category.$invalid && !CCForm.category.$pristine }">
-    <label for="category" class="Title">Category</label>
-    <select name="category" ng-model="article.category" required>
+    <label for="category" class="Title">category</label>
+    <select class="form-control Title" name="category" ng-model="article.category" required>
     <option class="Title" value="Technology">Technology</option>
     <option class="Title" value="Business">Business</option>
     <option class="Title" value="Sports">Sports</option>
@@ -37,44 +72,67 @@
     </select>
     <p ng-show="CCForm.category.$invalid && !CCForm.category.$pristine" class="help-block">Category is required.</p>
   </div>
-
-  <!-- Content -->
   <div class="form-group" ng-class="{ 'has-error' : CCForm.content.$invalid && !CCForm.content.$pristine }">
-    <label for="content" class="Title">Content</label>
-    <textarea class="Title" ng-model="article.content" name="content" rows="15" cols="50" ng-minlength="500"required></textarea>
-    <p ng-show="CCForm.content.$error.minlength" class="help-block">Content is too short to publish add atleast 50 words.</p>
+    <label  class="Title">Content</label>
+    <textarea class="form-control Title"  rows="11" ng-model="article.content" name="content"  ng-minlength="500" required></textarea>
+  </div>  
+      <p ng-show="CCForm.content.$error.minlength" class="help-block">Content is too short to publish add atleast 50 words.</p>
     <p ng-show="CCForm.content.$invalid && !CCForm.content.$pristine" class="help-block">Content is required.</p>
-    
-  </div>
-
-  
   
   <button   type="submit" class="btn btn-primary" ng-disabled="CCForm.$invalid">Post</button>
   <button type="reset" class="btn btn-primary">Reset Fields</button>
-  <div ng-show="add.adding"><img alt="Posting ...." src="img/loading.gif">Posting ....</div>
 </form>
 
-</div>
 
-	
-</div>
 <div ng-show="add.preview_loading"><img alt="Loading Preview ...." src="img/loading.gif">Loading Preview ....
 </div>
-<div ng-show="add.preview">
-<div class="article">
-            <div class="title">Title :{{add.preview_data.title}}
+<div ng-repeate="article in add.article">
+<div class="article" ng-controller="CommentController" ng-mouseover="dep.likes(info.article_id)">
+            <div class="title">Title :{{article.title}}
             </div>
-            <div class="author"> Author :{{add.preview_data.name}}
+            <div class="author"> Author :{{add.user_name}}
               
             </div>
-            <div class="category">Category:{{add.preview_data.category}}
+            <div class="category">Category:{{article.category}}
             </div>
-            <div class="date"> Published: {{add.preview_data.created |date}}
+            <div class="date"> Published: {{add.created |date:'EEEE, MMMM d, y HH:mm:ss a'}}
             </div>
-            <div class="content" ng-controller="AllArticles">
-              {{add.preview_data.content}} 
+            <div class="content">
+              {{article.content}} <button class="btn btn-success" ng-click="dep.fetchArticle(info)" ng-show="dep.readmore">Read More >></button>
             </div>
-           
+            <hr>
+          
+            <div class="likes" data-ng-init="init(info.article_id)">
+              <a><img class="image btn btn-link dep.color" src="img/like.png" ng-click="dep.addLikes(info.article_id)" ng-mouseover="dep.likes(info.article_id)"></a>
+              <a id="#liked_By" ng-click="dep.fetchUsers(info.article_id)" data-toggle="modal" >{{dep.a_likes}} Likes</a> 
+              </a><button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.article_id)">Commensts {{info.comments-1}}</button>
+            </div>
+  
+   <ul>
+   <img src="img/loading.gif" ng-show="dep.liked_by_busy">
+    <div ng-show="dep.liked_by_fetched" ng-repeat="name in dep.liked_by">
+      <li><h3 style="color: blue;">{{name}}</h3></li>
+    </div>
+    </ul>
+            
+                  <div ng-show="dep.available" ng-repeat="comment in dep.comments">
+       
+                  <comment-Info comment="comment"></comment-Info>
+                  
+
+                  <!--<article-Info info="article"></article-Info><hr> --> 
+
+          
+                  </div>
+                  <div ng-show="dep.showCommentBox">
+                    <textarea class="form-control" rows="3" placeholder="What's in your mind ?" ng-model="dep.comment_content" ng-keypress="$event.keyCode === 13 && dep.postComment(info.article_id)"></textarea>
+               
+                  </div>
+                 
+             
+
+
 </div>
+<br><br>
   
 </div>

@@ -45,7 +45,30 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
-    window.location.href='#home';
+    var userdata=
+    {
+      "type":"select",
+      "args":
+      {
+      "table":"user_details",
+      "columns":["name"],
+      "where":{"user_id":response.data.hasura_id}
+
+     }
+    };
+    $http.post('http://data.c100.hasura.me/v1/query',userdata)
+    .then(function successCallback(response){
+      //alert('user name inside service response.data.name '+response.data[0].name);
+      window.localStorage.setItem('user_name',response.data[0].name);
+
+
+    },function errorCallback(response){
+      //alert('user name inside service errorCallback response.data.name '+response.data.name);
+      //window.localStorage.setItem('user_name',response.data[0].name);
+
+    });
+
+        window.location.href='#home';
   // return $window.location.href='/#/home';
     // when the response is available
     return response;
@@ -88,6 +111,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
    // $http.defaults.headers.common['Authorization'] = undefined;
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
+    window.localStorage.removeItem('user_name');
     window.location.href='/#/login';
 
     return response;
@@ -97,6 +121,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     //if request is also cancealed give success logout message
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
+    window.localStorage.removeItem('user_name');
     window.location.href='/#/login';
      return response;
      
@@ -112,6 +137,10 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
   var getUserId = function(){
      var user_id = window.localStorage.getItem('user_id');
      return user_id;
+  };
+  var getUserName = function(){
+     var user_name = window.localStorage.getItem('user_name');
+     return user_name;
   };
   var getUserRole = function(){
      var role = window.localStorage.getItem('role');
@@ -129,6 +158,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     isAuthorized: isAuthorized,
     isAuthenticated: function() {return isAuthenticated;},
     role: getUserRole,
-    getUserId : getUserId
+    getUserId : getUserId,
+    getUserName : getUserName
   };
 });

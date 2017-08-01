@@ -2,7 +2,7 @@ CApp.controller("AllArticle2",
  function ($scope, $http, $templateCache,$rootScope,AuthService,Data) {
      $scope.all={};
      $scope.all.articles=[];
-     $scope.all.date= new Date();
+     $scope.all.article_id= 1;
     
     // alert(' current date '+$scope.all.date);
      $scope.all.busy=false;
@@ -40,7 +40,8 @@ CApp.controller("AllArticle2",
         "likes",
         "comments"
         
-      ]
+      ],
+  
       
   }
 };
