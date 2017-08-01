@@ -8,21 +8,32 @@
   <link rel="stylesheet" href="css/articleDisplay.css"/>
   <link rel="stylesheet" href="css/commentDisplay.css"/>
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Diplomata|Great+Vibes|Lobster|Montserrat|Playball|Lora|Merriweather|Zilla+Slab:400i" rel="stylesheet">
+  <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+ 
+ <script src="js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/angular-route.min.js"></script>
+ <script src="js/ng-infinite-scroll.min.js"></script>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+-->
      
  <!-- Latest compiled and minified CSS -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-
+ <!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+-->
 <!-- Optional theme -->
 <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>-->
-<!-- Latest compiled and minified JavaScript -->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+ <!--
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 
-  
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
-    <script src="js/ng-infinite-scroll.min.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.min.js"></script>
+-->
+ 
 
 <style type="text/css">
 .logo{
@@ -107,6 +118,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#add">Add Article</a></li>
         <li><a href="#activity">Recent Activity</a></li>
+        <li><a href="#all2">AllArticle2</a></li>
         <li><a href="#" ng-controller="AuthController" ng-click="auth.logout()">Logout</a></li>
         <div ng-show="auth.logout_error_condition" style="color: red; font-size: 16px;">{{auth.logout_error}}</div>
            
@@ -152,8 +164,8 @@
       <div class="container-fluid">
   <div class="row">
     
-    <div class="hidden-xs col-md-2 col-sm-3 " style="margin-top: 50px">
-<div class="side">
+    <div class="hidden-xs col-md-2 col-sm-3 " style="margin-top: 50px; ">
+<div class="side" style="height: 100vh;">
       <!--  <aside> -->
   <div id="sidebar">
             <div id="userphoto">
@@ -195,29 +207,31 @@
 </div> <!-- container -->
 
 <!-- body content ends -->
-        
+    <!--    
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/angular-route.min.js"></script>
-    <script type="text/javascript" src="js/ngStorage.min.js"></script>
     <script type="text/javascript" src="js/3.2.1-jquery.min.js"></script>
 
-    
+  
     
     
 
     <script src="js/bootstrap.min.js"></script>
-  
+    -->
     <script type="text/javascript" src="js/croute.js"></script>
     <script type="text/javascript" src="js/controllers/AllArticles.js"></script>
+    <script type="text/javascript" src="js/controllers/AllArticle2.js"></script>
     <script type="text/javascript" src="js/controllers/CommentController.js"></script>
     <script src="js/directives/articleInfo.js"></script>
     <script src="js/directives/commentInfo.js"></script>
     <script type="text/javascript" src="js/controllers/AddArticle.js"></script>
-    <script type="text/javascript" src="js/services/Auth.js"></script>
     <script type="text/javascript" src="js/services/AuthService.js"></script>
+    <script type="text/javascript" src="js/services/DataService.js"></script>
+
     <script type="text/javascript" src="js/services/Data.js"></script>
     <script type="text/javascript" src="js/controllers/AuthController.js"></script>
     <script type="text/javascript" src="js/controllers/DataController.js"></script>
+  
 
 
 

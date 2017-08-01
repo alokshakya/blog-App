@@ -1,3 +1,13 @@
+<style type="text/css">
+.red{
+	color: red;
+	background-color: red;
+}
+.blue{
+	color: blue;
+	background-color: blue;
+}	
+</style>
 <div class="article">
 		      	<div class="title">Title :{{info.title}}
 		      	</div>
@@ -14,7 +24,7 @@
 		      	<hr>
 		      	<div ng-controller="CommentController">
 		      	<div class="likes">
-		      		<a><img class="image btn btn-link" src="img/like.png" ng-controller="DataController" ng-click="data.addLike(info.article_id)"></a>{{info.likes-1}} <button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.name)">Commensts {{info.comments-1}}</button>
+		      		<a><img class="image btn btn-link dep.color" src="img/like.png" ng-click="dep.addLikes(info.article_id)"></a><a ng-click="dep.fetchUsers(info.article_id)">{{info.likes-1}} </a><button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.article_id)">Commensts {{info.comments-1}}</button>
 		      	</div>
 		      	
                   <div ng-show="dep.available" ng-repeat="comment in dep.comments">

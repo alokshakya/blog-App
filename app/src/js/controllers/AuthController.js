@@ -1,6 +1,6 @@
 CApp.controller("AuthController",
-  ['$scope','$rootScope','$http','$templateCache','$location', '$localStorage', '$window','AuthService','Auth',
-  function ($scope,$rootScope, $http, $templateCache,$location, $localStorage, $window, AuthService,Auth) {
+  ['$scope','$rootScope','$http','$templateCache','$location', '$window','AuthService',
+  function ($scope,$rootScope, $http, $templateCache,$location, $window, AuthService) {
     $scope.auth={};
     $scope.auth.signup_error_condition=false;
     $scope.auth.signup_error='';

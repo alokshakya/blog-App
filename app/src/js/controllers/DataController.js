@@ -1,6 +1,6 @@
 CApp.controller("DataController",
-  ['$scope','$rootScope','$http','$templateCache','$location', '$localStorage', '$window','Data','AuthService','Auth',
-  function ($scope,$rootScope, $http, $templateCache,$location, $localStorage, $window, Data,AuthService,Auth) {
+  ['$scope','$rootScope','$http','$templateCache','$location', '$window','Data','AuthService',
+  function ($scope,$rootScope, $http, $templateCache,$location, $window, Data,AuthService) {
     $scope.data={};
     $scope.data.all_articles=[];
     $scope.data.technology_articles=[];
@@ -11,7 +11,6 @@ CApp.controller("DataController",
     $scope.data.popular_articles=[];
     $scope.data.trending_articles=[];
     $scope.data.user_id=AuthService.getUserId();
-    $scope.data.id=Auth.getUserId();
     
 
 
@@ -105,8 +104,8 @@ CApp.controller("DataController",
             });
   };
 
- $scope.data.addLike = function(article_id){
-  alert('like pressed for article_id '+article_id);
+ $scope.data.addLikes = function(article_id){
+  alert('inside data controller '+article_id);
   var likedata=
 {
   "type": "insert",

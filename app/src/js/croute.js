@@ -1,4 +1,4 @@
-var CApp = angular.module("UserApp", ['ngRoute','ngStorage']);
+var CApp = angular.module("UserApp", ['ngRoute','infinite-scroll']);
 CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProvider) {
     $routeProvider
     .when('/login', {
@@ -39,6 +39,10 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
     .when('/other', {
         templateUrl : 'pages/other.html',
         controller: 'DataController'
+    })
+    .when('/all2', {
+        templateUrl : 'pages/allArticle2.html',
+        controller: 'AllArticle2'
     })
   
     .otherwise({

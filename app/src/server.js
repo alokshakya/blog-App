@@ -35,6 +35,10 @@ app.get('/js/angular.min.js', function (req, res) {
 app.get('/js/angular-route.min.js', function (req, res) {
   res.sendFile('js/angular-route.min.js',{root});
 });
+// sending angular route file also include ngInfinete-Scroll in module
+app.get('/js/ng-infinite-scroll.min.js', function (req, res) {
+  res.sendFile('js/ng-infinite-scroll.min.js',{root});
+});
 // sending jquery file
 app.get('/js/3.2.1-jquery.min.js', function (req, res) {
   res.sendFile('js/3.2.1-jquery.min.js',{root});
@@ -137,6 +141,9 @@ app.get('/js/services/Auth.js' , function (req, res) {
 app.get('/js/services/AuthService.js' , function (req, res) {
   res.sendFile('js/services/AuthService.js' ,{root});
 });
+app.get('/js/services/DataService.js' , function (req, res) {
+  res.sendFile('js/services/DataService.js' ,{root});
+});
 app.get('/js/services/Data.js' , function (req, res) {
   res.sendFile('js/services/Data.js' ,{root});
 });
@@ -148,3 +155,14 @@ app.get('/js/controllers/AuthController.js' , function (req, res) {
 app.get('/js/controllers/DataController.js' , function (req, res) {
   res.sendFile('js/controllers/DataController.js' ,{root});
 });
+
+// send AllArticle2Controller file
+app.get('/js/controllers/AllArticle2.js' , function (req, res) {
+  res.sendFile('js/controllers/AllArticle2.js' ,{root});
+});
+
+// send allArticle2.html file
+app.get('/pages/allArticle2.html' , function (req, res) {
+  res.sendFile('pages/allArticle2.html' ,{root});
+});
+
