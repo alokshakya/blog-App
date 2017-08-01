@@ -1,17 +1,21 @@
-CApp.controller("AllArticle2",['$scope','$http','$rootScope','AuthService','Data',
+CApp.controller("AllArticle2",
  function ($scope, $http, $templateCache,$rootScope,AuthService,Data) {
      $scope.all={};
      $scope.all.articles=[];
      $scope.all.date= new Date();
-     alert({
-      title: 'Date',
-      template: $scope.all.date
-     });
+    
     // alert(' current date '+$scope.all.date);
      $scope.all.busy=false;
      $scope.all.end=false;
      $scope.all.error='';
      $scope.all.error_condition=false;
+       $scope.all.user_id=AuthService.getUserId();
+    if(!$scope.all.user_id)
+        {
+          alert('Login First to visit this page');
+          window.location.href='/#/login';
+          
+        }
      //function for loading new articles
      $scope.all.nextPage = function()
      {
@@ -64,7 +68,7 @@ CApp.controller("AllArticle2",['$scope','$http','$rootScope','AuthService','Data
 
      };
      $scope.all.addLikes = function(article_id){
-  alert('inside data controller '+article_id);
+  //alert('inside data controller '+article_id);
   var likedata=
 {
   "type": "insert",
@@ -94,4 +98,4 @@ CApp.controller("AllArticle2",['$scope','$http','$rootScope','AuthService','Data
 
 
  };
-}]);
+});

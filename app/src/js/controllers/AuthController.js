@@ -19,15 +19,7 @@ CApp.controller("AuthController",
       $window.location.href='/#/login';
     }
     
-$scope.auth.showLogin = function(){
-    $scope.auth.signup_form=false;
-    $scope.auth.login_form=true;
-};
 
-$scope.auth.showSignUp = function(){
-$scope.auth.login_form=false;
-    $scope.auth.signup_form=true;
-};
 
 
     $scope.auth.signup = function(user){
@@ -56,14 +48,12 @@ $scope.auth.login_form=false;
     }; 
     //login functioin
   $scope.auth.login = function(user)  {
-    alert('email '+user.email);
-    alert('password '+user.password);
     var data={"email":user.email,"password":user.password};
     //AuthService.login(data);
     AuthService.login(data)
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-    alert('inside login successCallback in controller ');
+    //alert('inside login successCallback in controller ');
     $scope.auth.login_error_condition=true;
     $scope.auth.login_error=response.data.message;
  
@@ -72,7 +62,7 @@ $scope.auth.login_form=false;
   
     // when the response is available
   }, function errorCallback(response) {
-      alert('inside login errorCallback message in controller');
+      //alert('inside login errorCallback message in controller');
     
   });    
           
@@ -83,18 +73,16 @@ $scope.auth.login_form=false;
     alert('Logout pressed');
     AuthService.logout()
             .then(function(response) {
-             $scope.auth.logout_error_condition=true;
-             alert('logout response in controller '+response.data.message);
-             $scope.auth.logout_error=response.data.message;
+            
+            // alert('logout response in controller '+response.data.message);
+            
 
         }, function(response) {
           alert('Inside failed logout');
 
           $scope.data = response.data || 'Request failed';
           $scope.status = response.status;
-          $scope.auth.logout_error_condition=true;
-          $scope.auth.logout_error=response.data.message;
-          console.log('error message '+response.data.message);
+         
       });
             
   };

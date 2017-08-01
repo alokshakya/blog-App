@@ -1,6 +1,6 @@
 CApp.controller("AddArticle",
-  ['$scope','$rootScope','$http','$templateCache','$location', '$localStorage', '$window','Data','AuthService',
-  function ($scope,$rootScope, $http, $templateCache,$location, $localStorage, $window, Data,AuthService) {
+  ['$scope','$rootScope','$http','$templateCache','$location', '$window','Data','AuthService',
+  function ($scope,$rootScope, $http, $templateCache,$location,  $window, Data,AuthService) {
      $scope.add={};
      
      $scope.add.form=true;

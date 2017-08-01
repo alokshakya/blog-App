@@ -23,7 +23,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     
     isAuthenticated = true;
     auth_token = token;
-    alert('auth_token '+auth_token);
+   // alert('auth_token '+auth_token);
       
     // Set the token as header for your requests!
     if(auth_token){
@@ -41,7 +41,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     return  $http.post(baseUrl+'/login',data)
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-    alert('inside login successCallback token in service '+response.data.auth_token);
+   // alert('inside login successCallback token in service '+response.data.auth_token);
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
@@ -50,7 +50,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     // when the response is available
     return response;
   }, function errorCallback(response) {
-      alert('inside login errorCallback message in service '+response.data.message);
+      //alert('inside login errorCallback message in service '+response.data.message);
       return response;
   });
         //storeUserCredentials(name + '.yourServerToken');
@@ -83,7 +83,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     return $http.post(baseUrl+'/user/logout')
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-    alert('AuthService logged out server successCallback');
+   // alert('AuthService logged out server successCallback');
     isAuthenticated = false;
    // $http.defaults.headers.common['Authorization'] = undefined;
     window.localStorage.removeItem(BearerToken);
@@ -93,7 +93,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     return response;
     // when the response is available
   }, function errorCallback(response) {
-    alert('AuthService logged out server errorCallback');
+    //alert('AuthService logged out server errorCallback');
     //if request is also cancealed give success logout message
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
