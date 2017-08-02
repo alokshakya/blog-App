@@ -1,14 +1,14 @@
 CApp.controller("AllArticle2",
- function ($scope, $http, $templateCache,$rootScope,AuthService,Data) {
+ function ($scope, $http, $templateCache,$rootScope,AuthService,Data,DataService) {
      $scope.all={};
      $scope.all.articles=[];
-     $scope.all.article_id= 1;
-    
+    $scope.all.data={};
     // alert(' current date '+$scope.all.date);
      $scope.all.busy=false;
      $scope.all.end=false;
      $scope.all.error='';
      $scope.all.error_condition=false;
+
        $scope.all.user_id=AuthService.getUserId();
     if(!$scope.all.user_id)
         {
@@ -19,33 +19,39 @@ CApp.controller("AllArticle2",
      //function for loading new articles
      $scope.all.nextPage = function()
      {
-      if(($scope.all.busy) && (!$scope.all.end))
+      if((!$scope.all.busy) && ($scope.all.end))
       {
         return;
       }
       $scope.all.busy=true;
-      var query=
-      {
-  "type": "select",
+    var cr;
+    if(!$scope.all.articles[$scope.all.articles.length-1])
+    {
+      cr=new Date();
+    }
+    if($scope.all.articles[$scope.all.articles.length-1])
+    {
+      cr=$scope.all.articles[$scope.all.articles.length-1].created;
+    }
+var query=
+{
+  "type":"select",
   "args":{
-    "table":"all_articles",
-    "columns":[
-      "article_id",
-        "user_id",
-        "name",
-        "created",
-        "title",
-        "category",
-        "content",
-        "likes",
-        "comments"
-        
-      ],
-  
-      
+    "table":"article",
+    "columns":["article_id","title","category","created","content",
+    {
+      "name":"published_by",
+      "columns":["name"]
+    }
+    ],
+    "where":{"created":{"$lt": cr}},
+    "order_by":"-created",
+    "limit":5
   }
 };
-      $http.post('http://data.c100.hasura.me/v1/query',query)
+//alert('query '+query);
+//console.log('article_id after query '+$scope.all.article_id);
+            $http.post('http://data.c100.hasura.me/v1/query',JSON.stringify(query))
               .then(function successCallback(response) {
                 var l=response.data.length;
                       if(l===0)
@@ -54,7 +60,9 @@ CApp.controller("AllArticle2",
                         $scope.all.end=true;
                         return;
                       }
-                $scope.all.date=response.data[l-1].created;
+                $scope.all.article_id=response.data[l-1].article_id;
+                console.log('response.data[l-1].article_id '+response.data[l-1].article_id);
+                console.log('new article_id '+$scope.all.article_id);
                       for(var i=0;i<l;i++)
                       {
                         $scope.all.articles.push(response.data[i]);
@@ -68,35 +76,5 @@ CApp.controller("AllArticle2",
 
 
      };
-     $scope.all.addLikes = function(article_id){
-  //alert('inside data controller '+article_id);
-  var likedata=
-{
-  "type": "insert",
-  "args":{
-    "table":"article_like",
-    "objects":[
-      {
-        "user_id":$scope.data.user_id,
-      "article_id":article_id
-      }]
-  }
-};
-              Data.addLike(likedata)
-              .success(function (success) {
-              console.log('succ '+success);
-             // requst succes
-
-            })
-            .error(function (error) {
-              //requst failed
-                $scope.status = 'Unable to post article: ' + error.message;
-                $scope.add.error='Server Error';
-                $scope.add.adding=false;
-                console.log('err '+$scope.status);
-                console.log(error);
-            });
-
-
- };
+     
 });

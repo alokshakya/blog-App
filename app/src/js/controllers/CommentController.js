@@ -14,10 +14,14 @@ CApp.controller("CommentController", function ($scope, $http, $templateCache,Aut
 $scope.dep.likes = function(article_id)
 {
   $scope.dep.a_likes=DataService.getLikeCount(article_id);
+  $scope.dep.a_comments=DataService.getCommentCount(article_id);
   console.log('ng-mouseover working and dep.a_likes '+$scope.dep.a_likes);
+  console.log('ng-mouseover for comment and dep.a_comments '+$scope.dep.a_comments);
 
 
 };
+
+
 
  
       
@@ -49,10 +53,7 @@ $scope.dep.likes = function(article_id)
         Data.addLike(qdata)
             .then(function(response) {
               var l=response.data.length;
-          if(l===0){
-              
-             
-          }
+          
            for (var i = 0; i < l; i++) {
             $scope.dep.comments.push(response.data[i]);
           
@@ -71,8 +72,7 @@ $scope.dep.likes = function(article_id)
         }
          
         }, function(response) {
-          $scope.data = response.data || 'Request failed';
-          $scope.status = response.status;
+          alert('comments faithing failed');
       });
         
     };
@@ -130,7 +130,7 @@ $scope.dep.likes = function(article_id)
     
     //function for posting comment
     $scope.dep.postComment = function(article_id) {
-      alert('inside post comment function');
+      //alert('inside post comment function');
         $scope.dep.available=false;
         $scope.dep.user_id=AuthService.getUserId();
         if(!$scope.dep.user_id)
@@ -157,11 +157,12 @@ $scope.dep.likes = function(article_id)
           $scope.status = response.status;
           DataService.updateLikes();
           $scope.dep.comment_content='';
+          DataService.updateComments();
+          $scope.dep.likes(article_id);
          $scope.dep.fetchComment(article_id);
         }, function(response) {
-          $scope.data = response.data || 'Request failed';
-          $scope.status = response.status;
-          alert('You have already liked this article');
+         
+          alert('Your comment posting failed');
       });
     };
       //function for adding likes
@@ -192,7 +193,7 @@ $scope.dep.likes = function(article_id)
             .then(function(response) {
           $scope.status = response.status;
           DataService.updateLikes();
-          
+          $scope.dep.likes(article_id);
 
         }, function(response) {
           $scope.data = response.data || 'Request failed';

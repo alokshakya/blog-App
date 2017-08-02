@@ -105,7 +105,7 @@
             <div class="likes" data-ng-init="init(info.article_id)">
               <a><img class="image btn btn-link dep.color" src="img/like.png" ng-click="dep.addLikes(info.article_id)" ng-mouseover="dep.likes(info.article_id)"></a>
               <a id="#liked_By" ng-click="dep.fetchUsers(info.article_id)" data-toggle="modal" >{{dep.a_likes}} Likes</a> 
-              </a><button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.article_id)">Commensts {{info.comments-1}}</button>
+              </a><button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.article_id)">Commensts {{dep.a_comments}}</button>
             </div>
   
    <ul>
