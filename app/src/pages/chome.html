@@ -1,10 +1,16 @@
-         <div ng-repeat="article in data.all_articles">
-        <!--  <article-Info info="article"></article-Info><hr>  -->
-        
-      <article-Info info="article"></article-Info><hr>  
+<div ng-controller="AllArticle2">
 
-          
-      </div>
-      <hr>
-<button class="btn btn-success"  ng-click="data.allArticles()">Fetch More</button>
-user is is: {{data.user_id}}
+	 	
+	<div infinite-scroll='all.nextPage()' infinite-scroll-disabled="all.busy" infinite-scroll-distance='4'>
+ 		<div ng-repeat="article in all.articles | filter:searchTitle">
+ 			<article-Info info="article"></article-Info>
+ 			
+ 		</div>
+ 		
+ 	</div>
+ 	<div ng-show="all.busy"><img src="img/loading.gif" class="img img-responsive"></div>
+ 	<div ng-show="all.end">No More Articles Present</div>
+
+
+	
+</div>

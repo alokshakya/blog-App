@@ -165,4 +165,40 @@ app.get('/js/controllers/AllArticle2.js' , function (req, res) {
 app.get('/pages/allArticle2.html' , function (req, res) {
   res.sendFile('pages/allArticle2.html' ,{root});
 });
+// send Technology Controller and technology.html
+app.get('/pages/technology.html' , function (req, res) {
+  res.sendFile('pages/technology.html' ,{root});
+});
+app.get('/js/controllers/TechnologyController.js' , function (req, res) {
+  res.sendFile('js/controllers/TechnologyController.js' ,{root});
+});
+//send Business Controller and business html
+app.get('/pages/business.html' , function (req, res) {
+  res.sendFile('pages/business.html' ,{root});
+});
+app.get('/js/controllers/BusinessController.js' , function (req, res) {
+  res.sendFile('js/controllers/BusinessController.js' ,{root});
+});
 
+//send Sports Controller and sports html
+app.get('/pages/sports.html' , function (req, res) {
+  res.sendFile('pages/sports.html' ,{root});
+});
+app.get('/js/controllers/SportsController.js' , function (req, res) {
+  res.sendFile('js/controllers/SportsController.js' ,{root});
+});
+
+//send Sports Controller and sports html
+app.get('/pages/question.html' , function (req, res) {
+  res.sendFile('pages/question.html' ,{root});
+});
+app.get('/js/controllers/QuestionController.js' , function (req, res) {
+  res.sendFile('js/controllers/QuestionController.js' ,{root});
+});
+//send Other Controller and other html
+app.get('/pages/other.html' , function (req, res) {
+  res.sendFile('pages/other.html' ,{root});
+});
+app.get('/js/controllers/OtherController.js' , function (req, res) {
+  res.sendFile('js/controllers/OtherController.js' ,{root});
+});

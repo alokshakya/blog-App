@@ -26,19 +26,23 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
     })
     .when('/technology', {
         templateUrl : 'pages/technology.html',
-        controller: 'DataController'
+        controller: 'TechnologyController'
     })
     .when('/business', {
         templateUrl : 'pages/business.html',
-        controller: 'DataController'
+        controller: 'BusinessController'
     })
     .when('/sports', {
         templateUrl : 'pages/sports.html',
-        controller: 'DataController'
+        controller: 'SportsController'
+    })
+    .when('/questions', {
+        templateUrl : 'pages/question.html',
+        controller: 'QuestionController'
     })
     .when('/other', {
         templateUrl : 'pages/other.html',
-        controller: 'DataController'
+        controller: 'OtherController'
     })
     .when('/all2', {
         templateUrl : 'pages/allArticle2.html',

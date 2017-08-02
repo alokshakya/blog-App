@@ -11,7 +11,7 @@
  .article:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.05s ease;
-  background-color: #273330;
+  background-color: #485160;
   color:green;
 
 }
@@ -48,12 +48,7 @@
   font-size: 28px;
   color: blue;
 }
-.content:hover,
- .content:focus {
-  transition: 0.2s ease;
-  font-size: 22px;
-  color: green;
-}
+
  .author{
  	font-family: 'Playball', cursive;
  	font-size: 28px;
@@ -115,6 +110,93 @@
  	height: 40px;
  }
  .image:hover{
- 	height: 60px;
+ 	height: 50px;
  	transition: 0.2s ease;
+ }
+ @media screen only and (max-width: 500)
+ {
+  .article{
+  margin-top: 4px;
+  margin-left: 2%;
+  margin-right: 3%;
+  padding: 1px 2px 2px 1px;
+  box-shadow: 1px 1px 1px #2C3E50;
+  border-radius: 8px;
+  background-color: #b2a3c6;
+}
+
+ .title{
+  
+        font-size: 20px;
+ }
+
+ .title:hover,
+ .title:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  color: blue;
+  font-size: 22px;
+}
+ .author:hover,
+ .author:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  font-size: 20px;
+  color: blue;
+}
+.category:hover,
+ .category:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  font-size: 18px;
+  color: blue;
+}
+.date:hover,
+ .date:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+  font-size: 18px;
+  color: blue;
+}
+
+ .author{
+  font-family: 'Playball', cursive;
+  font-size: 20px;
+ }
+ .category{
+  font-family: 'Zilla Slab', serif;
+  font-size: 16px;
+ }
+ .date{
+  font-family: 'Lobster', cursive;
+  font-size: 14px;
+ }
+ .content {
+  font-family: 'Zilla Slab', serif;
+  font-size: 14px;
+  background-color: #ddd;
+  padding: 1px 2px 2px 2px;
+    box-shadow: 1px 1px 1px #2C3E50;
+    border-radius: 5px;
+ }
+ #Zilla{
+  font-family: 'Zilla Slab', serif;
+  font-size: 38px;
+ }
+ #Montserrat{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+ }
+ #Lobster{
+  font-family: 'Lobster', cursive;
+  font-size: 38px;
+ }
+
+ .image{
+  height: 20px;
+ }
+ .image:hover{
+  height: 25px;
+  transition: 0.2s ease;
+ }
  }

@@ -1,9 +1,5 @@
 
 
-
-    <!-- body content starts -->
-   <!-- div id login form form -->
-
 <!-- login form  css starts -->
 <style type="text/css">
 .login-wrap{
@@ -223,18 +219,22 @@
 
 
 <!-- div id article content -->
+<div ng-controller="AllArticle2">
 
-        
-             <div ng-controller="AllArticles">
-                  <div ng-repeat="article in dep.articles">
-        <!--  <article-Info info="article"></article-Info><hr>  -->
-        
-                  <article-Info info="article"></article-Info><hr>  
+    
+  <div infinite-scroll='all.nextPage()' infinite-scroll-disabled="all.busy" infinite-scroll-distance='4'>
+    <div ng-repeat="article in all.articles | filter:searchTitle">
+      <article-Info info="article"></article-Info>
+      
+    </div>
+    
+  </div>
+  <div ng-show="all.busy"><img src="img/loading.gif" class="img img-responsive"></div>
+  <div ng-show="all.end">No More Articles Present</div>
 
-          
-                  </div>
-                  <hr>
-             </div>
+
+  
+</div>
   
         
           
