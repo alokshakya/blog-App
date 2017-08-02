@@ -1,0 +1,16 @@
+<div ng-controller="BusinessController">
+
+	 	
+	<div infinite-scroll='all.nextPage()' infinite-scroll-disabled="all.busy" infinite-scroll-distance='4'>
+ 		<div ng-repeat="article in all.articles | filter:searchTitle">
+ 			<article-Info info="article"></article-Info>
+ 			
+ 		</div>
+ 		
+ 	</div>
+ 	<div ng-show="all.busy"><img src="img/loading.gif" class="img img-responsive"></div>
+ 	<div ng-show="all.end">No More Business Articles Present</div>
+
+
+	
+</div>
