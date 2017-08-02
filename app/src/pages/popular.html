@@ -1,0 +1,63 @@
+<div ng-controller="PopularController">
+
+	 	
+	<div infinite-scroll='all.nextPage()' infinite-scroll-disabled="all.busy" infinite-scroll-distance='4'>
+ 		<div ng-repeat="info in all.articles | filter:searchTitle">
+ 			<div class="article" ng-controller="CommentController" ng-mouseover="dep.likes(info.article_id)"> 
+		      	<div class="title">Title :{{info.title}}
+		      	</div>
+		      	<div class="author"> Author :{{info.name}}
+		      		
+		      	</div>
+		      	<div class="category">Category:{{info.category}}
+		      	</div>
+		      	<div class="date"> Published: {{info.created |date:'EEEE, MMMM d, y HH:mm:ss a'}}
+		      	</div>
+		      	<div class="content" >
+		      		{{info.content}} 
+		      		<button class="btn btn-success" ng-click="dep.fetchArticle(info)" ng-show="dep.readmore">Read More ></button>
+		      	</div>
+		      	<hr>
+		      
+		      	<div class="likes" >
+		      		<a><img class="image btn btn-link dep.color" src="img/like.png" ng-click="dep.addLikes(info.article_id)" ></a>
+		      		<a id="#liked_By" ng-click="dep.fetchUsers(info.article_id)" data-toggle="modal" >{{dep.a_likes}} Likes</a> 
+		      		</a><a ><button class="btn btn-success pull-right" ng-click="dep.fetchComment(info.article_id)">Commensts {{dep.a_comments}}</button></a>
+		      	</div>
+	
+   <ul>
+   <img src="img/loading.gif" ng-show="dep.liked_by_busy">
+    <div ng-show="dep.liked_by_fetched" ng-repeat="name in dep.liked_by">
+      <li><h3 style="color: blue;">{{name}}</h3></li>
+    </div>
+    </ul>
+		      	
+                  <div  ng-show="dep.available" ng-repeat="comment in dep.comments">
+       
+                  <comment-Info comment="comment"></comment-Info>
+                  
+
+                  <!--<article-Info info="article"></article-Info><hr> --> 
+
+          
+                  </div>
+                  <div ng-show="dep.showCommentBox">
+                  	<textarea class="form-control" rows="3" placeholder="What's in your mind ?" ng-model="dep.comment_content" ng-keypress="$event.keyCode === 13 && dep.postComment(info.article_id)"></textarea>
+               
+                  </div>
+                 
+             
+
+
+</div>
+<br><br>
+ 			
+ 		</div>
+ 		
+ 	</div>
+ 	<div ng-show="all.busy"><img src="img/loading.gif" class="img img-responsive"></div>
+ 	<div ng-show="all.end">No More Popular Articles Present</div>
+
+
+	
+</div>
