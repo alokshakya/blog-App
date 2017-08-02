@@ -12,8 +12,9 @@
 		      	</div>
 		      	<div class="date"> Published: {{info.created |date:'EEEE, MMMM d, y HH:mm:ss a'}}
 		      	</div>
-		      	<div class="content" 
-		      		{{info.content}} <button class="btn btn-success" ng-click="dep.fetchArticle(info)" ng-show="dep.readmore">Read More >></button>
+		      	<div class="content" >
+		      		{{info.content}} 
+		      		<button class="btn btn-success" ng-click="dep.fetchArticle(info)" ng-show="dep.readmore">Read More ></button>
 		      	</div>
 		      	<hr>
 		      
