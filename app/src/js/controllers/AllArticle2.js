@@ -10,12 +10,12 @@ CApp.controller("AllArticle2",
      $scope.all.error_condition=false;
 
        $scope.all.user_id=AuthService.getUserId();
-    if(!$scope.all.user_id)
+    /*if(!$scope.all.user_id)
         {
           alert('Login First to visit this page');
           window.location.href='/#/login';
           
-        }
+        }*/
      //function for loading new articles
      $scope.all.nextPage = function()
      {

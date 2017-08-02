@@ -12,7 +12,7 @@ CApp.controller("TechnologyController",
        $scope.all.user_id=AuthService.getUserId();
     if(!$scope.all.user_id)
         {
-          alert('Login First to visit this page');
+          alert('Login First to use filtering by Technology category');
           window.location.href='/#/login';
           
         }

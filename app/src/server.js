@@ -202,3 +202,17 @@ app.get('/pages/other.html' , function (req, res) {
 app.get('/js/controllers/OtherController.js' , function (req, res) {
   res.sendFile('js/controllers/OtherController.js' ,{root});
 });
+//send Popular Controller and popular html
+app.get('/pages/popular.html' , function (req, res) {
+  res.sendFile('pages/popular.html' ,{root});
+});
+app.get('/js/controllers/PopularController.js' , function (req, res) {
+  res.sendFile('js/controllers/PopularController.js' ,{root});
+});
+//send Trending Controller and trending html
+app.get('/pages/trending.html' , function (req, res) {
+  res.sendFile('pages/trending.html' ,{root});
+});
+app.get('/js/controllers/TrendingController.js' , function (req, res) {
+  res.sendFile('js/controllers/TrendingController.js' ,{root});
+});

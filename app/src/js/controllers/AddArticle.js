@@ -2,7 +2,13 @@ CApp.controller("AddArticle",
   ['$scope','$rootScope','$http','$templateCache','$location', '$window','Data','AuthService',
   function ($scope,$rootScope, $http, $templateCache,$location,  $window, Data,AuthService) {
      $scope.add={};
-     
+     $scope.add.user_id=AuthService.getUserId();
+     if(!$scope.add.user_id)
+        {
+          alert('Login First to add article ');
+          window.location.href='/#/login';
+          
+        }
      $scope.add.form=true;
      $scope.add.adding=false;
      $scope.add.loading_preview=false;

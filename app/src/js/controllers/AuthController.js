@@ -70,7 +70,7 @@ CApp.controller("AuthController",
   };
   // logout function
   $scope.auth.logout = function(user)  {
-    alert('Logout pressed');
+    //alert('Logout pressed');
     AuthService.logout()
             .then(function(response) {
             

@@ -21,8 +21,8 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
         controller: 'DataController'
     })
     .when('/trending', {
-        templateUrl : 'pages/trending',
-        controller: 'DataController'
+        templateUrl : 'pages/trending.html',
+        controller: 'TrendingController'
     })
     .when('/technology', {
         templateUrl : 'pages/technology.html',
