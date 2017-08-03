@@ -1,5 +1,7 @@
 var CApp = angular.module("UserApp", ['ngRoute','infinite-scroll']);
-CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProvider) {
+CApp.config(['$routeProvider', '$httpProvider','$locationProvider',function($routeProvider,$httpProvider,$locationProvider) {
+    
+    $locationProvider.hashPrefix('');
     $routeProvider
     .when('/login', {
         templateUrl : 'pages/login.html',
