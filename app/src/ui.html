@@ -173,9 +173,9 @@
 <div class="side" style="height: 100vh;">
       <!--  <aside> -->
   <div id="sidebar">
-            <div id="userphoto">
+            <div id="userphoto" ng-controller="AuthController">
               
-              <p align="center" style="color:green; text-size:30px;" ng-controller="AuthController">Welcome {{auth.user_name}}</p>
+              <p align="center" style="color:green; text-size:30px;" >Welcome {{auth.user_name}}</p>
             </div>
       <ul class="sidebar-nav">
         <li><a href="#trending">Trending</a></li>

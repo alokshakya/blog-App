@@ -14,6 +14,7 @@ CApp.controller("AuthController",
     $scope.auth.signup_form=false;
     $scope.auth.user_id=AuthService.getUserId();
     $scope.auth.user_name=AuthService.getUserName();
+    //alert('username in auth '+$scope.auth.user_name);
    
     if($scope.auth.user_id){
       $scope.auth.logoutButton=true;
@@ -64,14 +65,16 @@ CApp.controller("AuthController",
     $scope.auth.user_name=AuthService.getUserName();
        $scope.auth.login_error_condition=true;
     $scope.auth.login_error=response.data.message;
- 
-    // $window.location.href='/#/home';
+    //alert('user from login Controller successCallback '+AuthService.getUserName());
+     $window.location.href='/';
   // return $window.location.href='/#/home';
   
     // when the response is available
   }, function errorCallback(response) {
     $scope.auth.user_id=AuthService.getUserId();
     $scope.auth.user_name=AuthService.getUserName();
+    //alert('user from login Controller errorCallback '+AuthService.getUserName());
+    window.location.href='/';
       //alert('inside login errorCallback message in controller');
     
   });    

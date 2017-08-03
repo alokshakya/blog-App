@@ -13,6 +13,35 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
       useCredentials(token);
     }
   }
+  function setUserName() {
+   // alert('inside setUserName function');
+    var userdata=
+    {
+      "type":"select",
+      "args":
+      {
+      "table":"user_details",
+      "columns":["name"],
+      "where":{"user_id":{"$eq":window.localStorage.getItem('user_id')}}
+
+     }
+    };
+    //alert('inside setUserName function user_id '+window.localStorage.getItem('user_id'));
+            $http.post('http://data.alokshakya.hasura.me/v1/query',JSON.stringify(userdata))
+            .then(function successCallback(response){
+             // alert('user name inside service response.data.name '+response.data[0].name);
+              window.localStorage.setItem('user_name',response.data[0].name);
+              
+
+
+            },function errorCallback(response){
+              //alert('user name inside service errorCallback response.data.name '+response.data[0].name);
+              window.localStorage.setItem('user_name',response.data[0].name);
+
+            });
+          
+  }
+  
  
   function storeUserCredentials(token) {
     window.localStorage.setItem(BearerToken, token);
@@ -41,32 +70,12 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     return  $http.post(baseUrl+'/login',data)
     .then(function successCallback(response) {
     // this callback will be called asynchronously
-   // alert('inside login successCallback token in service '+response.data.auth_token);
+   //alert('inside login successCallback token in service '+response.data.auth_token);
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
-    var userdata=
-    {
-      "type":"select",
-      "args":
-      {
-      "table":"user_details",
-      "columns":["name"],
-      "where":{"user_id":response.data.hasura_id}
-
-     }
-    };
-    $http.post('http://data.alokshakya.hasura.me/v1/query',userdata)
-    .then(function successCallback(response){
-      //alert('user name inside service response.data.name '+response.data[0].name);
-      window.localStorage.setItem('user_name',response.data[0].name);
-
-
-    },function errorCallback(response){
-      //alert('user name inside service errorCallback response.data.name '+response.data.name);
-      //window.localStorage.setItem('user_name',response.data[0].name);
-
-    });
+    
+setUserName();
 
         window.location.href='/';
   // return $window.location.href='/#/home';
@@ -82,6 +91,8 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
        
   
   };
+
+
   var signup = function(data,name) {
         // Make a request and receive your auth token from your server
     return  $http.post(baseUrl+'/signup',data)
@@ -90,6 +101,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     //alert('inside signup successCallback token '+response.data.auth_token);
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
+    window.localStorage.setItem('user_name',name);
     storeUserCredentials(response.data.auth_token);
     var q=
     {
