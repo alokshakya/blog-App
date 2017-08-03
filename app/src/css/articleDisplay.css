@@ -1,10 +1,10 @@
 .article{
 	margin-top: 10px;
-	margin-left: 2%;
-	margin-right: 3%;
-  padding: 10px 10px 10px 10px;
-  box-shadow: 5px 5px 5px #2C3E50;
-  border-radius: 20px;
+	margin-left: 1px;
+	margin-right: 1px;
+  padding: 2px 3px 3px 1px;
+  box-shadow: 1px 2px 2px #2C3E50;
+  border-radius: 10px;
   background-color: #b2a3c6;
 }
 .article:hover,
@@ -17,7 +17,7 @@
 }
  .title{
  	
-        font-size: 30px;
+        font-size: 20px;
  }
 
  .title:hover,
@@ -25,95 +25,95 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
   color: blue;
-  font-size: 34px;
+  font-size: 22px;
 }
  .author:hover,
  .author:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 32px;
+  font-size: 22px;
   color: blue;
 }
 .category:hover,
  .category:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 30px;
+  font-size: 22px;
   color: blue;
 }
 .date:hover,
  .date:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 28px;
+  font-size: 24px;
   color: blue;
 }
 
  .author{
  	font-family: 'Playball', cursive;
- 	font-size: 28px;
+ 	font-size: 20px;
  }
  .category{
  	font-family: 'Zilla Slab', serif;
- 	font-size: 26px;
+ 	font-size: 20px;
  }
  .date{
  	font-family: 'Lobster', cursive;
- 	font-size: 24px;
+ 	font-size: 22px;
  }
  .content {
  	font-family: 'Zilla Slab', serif;
- 	font-size: 20px;
+ 	font-size: 16px;
  	background-color: #ddd;
- 	padding: 5px 10px 10px 10px;
-    box-shadow: 5px 5px 5px #2C3E50;
-    border-radius: 15px;
+ 	padding: 1px 2px 2px 1px;
+    box-shadow: 1px 1px 1px #2C3E50;
+    border-radius: 2px;
  }
  #Zilla{
  	font-family: 'Zilla Slab', serif;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Montserrat{
  	font-family: 'Montserrat', sans-serif;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Lobster{
  	font-family: 'Lobster', cursive;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Abril{
  	font-family: 'Abril Fatface', cursive;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Great{
  	font-family: 'Great Vibes', cursive;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Playball
  {
  	font-family: 'Playball', cursive;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Diplomata{
  	font-family: 'Diplomata', cursive;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Merriweather{
  	font-family: 'Merriweather', serif;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  #Lora{
  	font-family: 'Lora', serif;
- 	font-size: 38px;
+ 	font-size: 18px;
  }
  .image{
- 	height: 40px;
+ 	height: 30px;
  }
  .image:hover{
- 	height: 50px;
+ 	height: 35px;
  	transition: 0.2s ease;
  }
- @media screen only and (max-width: 500)
+ @media screen only and (min-width: 500)
  {
   .article{
   margin-top: 2px;px;
