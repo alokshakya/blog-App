@@ -111,7 +111,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     }, function errorCallback(response){
 
     });
-    window.location.href='/#/home';
+    window.location.href='/';
     
     return response;
     // when the response is available
@@ -132,7 +132,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
     window.localStorage.removeItem('user_name');
-    window.location.href='/#/login';
+    window.location.href='/';
 
     return response;
     // when the response is available
@@ -142,7 +142,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     window.localStorage.removeItem(BearerToken);
     window.localStorage.removeItem('user_id');
     window.localStorage.removeItem('user_name');
-    window.location.href='/#/login';
+    window.location.href='/';
      return response;
      
   });
