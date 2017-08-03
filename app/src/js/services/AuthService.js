@@ -82,7 +82,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
        
   
   };
-  var signup = function(data) {
+  var signup = function(data,name) {
         // Make a request and receive your auth token from your server
     return  $http.post(baseUrl+'/signup',data)
     .then(function successCallback(response) {
@@ -91,6 +91,26 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
     window.localStorage.setItem('user_id',response.data.hasura_id);
     window.localStorage.setItem('role',response.data.hasura_roles);
     storeUserCredentials(response.data.auth_token);
+    var q=
+    {
+       "type":"insert",
+       "args":{
+        "table":"user_details",
+        "objects":[
+      {
+        "user_id":response.data.hasura_id,
+        "name":name
+      }
+      ]
+       
+       }
+    };
+    $http.post('http://data.alokshakya.hasura.me/v1/query',JSON.stringify(q))
+    .then (function successCallback(response){
+
+    }, function errorCallback(response){
+
+    });
     window.location.href='/#/home';
     
     return response;

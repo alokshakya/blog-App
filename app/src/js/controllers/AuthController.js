@@ -36,7 +36,7 @@ CApp.controller("AuthController",
         "email":user.email,
         "password":user.password
       };
-      AuthService.signup(data)
+      AuthService.signup(JSON.stringify(data),user.name)
             .then(function(response) {
 
         //  console.log('response '+response.data);

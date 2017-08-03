@@ -72,8 +72,12 @@ var query=
                       }
                 $scope.all.busy=false;
                 }, function errorCallback(response) {
+                  $scope.all.busy=false;
+                  $scope.all.end=true;
+                        
                    $scope.all.error='Request failed at server please check Internet_Connection';
                    $scope.all.error_condition=true;
+                  
 
                 });
 
