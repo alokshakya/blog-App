@@ -14,7 +14,7 @@ CApp.controller("QuestionController",
         {
           alert('Login First to use filtering by Question category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

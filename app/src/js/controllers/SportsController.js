@@ -14,7 +14,7 @@ CApp.controller("SportsController",
         {
           alert('Login First to use filtering by Sports category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

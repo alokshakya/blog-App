@@ -14,7 +14,7 @@ CApp.controller("TrendingController",
         {
           alert('Login First to use filtering by Trending category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

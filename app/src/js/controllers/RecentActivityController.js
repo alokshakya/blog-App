@@ -16,6 +16,14 @@ CApp.controller("RecentActivityController",
   $scope.rec.article_fetch_error='';
   $scope.rec.article_fetch_error_condition=false;
   $scope.rec.user_id=AuthService.getUserId();
+
+  
+    if(!$scope.rec.user_id)
+        {
+          alert('Login First to get your Recent Activity');
+          window.location.href='/#/login';
+          return;
+        }
 var query=
 {
   "type":"select",

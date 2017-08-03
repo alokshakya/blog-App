@@ -14,7 +14,7 @@ CApp.controller("OtherController",
         {
           alert('Login First to use filtering by Other category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

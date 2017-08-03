@@ -7,7 +7,7 @@ CApp.controller("AddArticle",
         {
           alert('Login First to add article ');
           window.location.href='/#/login';
-          
+          return;
         }
      $scope.add.form=true;
      $scope.add.adding=false;

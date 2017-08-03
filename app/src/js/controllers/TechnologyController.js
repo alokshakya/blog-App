@@ -14,7 +14,7 @@ CApp.controller("TechnologyController",
         {
           alert('Login First to use filtering by Technology category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

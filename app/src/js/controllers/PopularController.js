@@ -14,7 +14,7 @@ CApp.controller("PopularController",
         {
           alert('Login First to use filtering by Popular category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()

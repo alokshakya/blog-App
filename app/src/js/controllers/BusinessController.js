@@ -14,7 +14,7 @@ CApp.controller("BusinessController",
         {
           alert('Login First to use filtering by Business category');
           window.location.href='/#/login';
-          
+          return;
         }
      //function for loading new articles
      $scope.all.nextPage = function()
