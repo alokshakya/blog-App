@@ -116,18 +116,18 @@
  @media screen only and (max-width: 500)
  {
   .article{
-  margin-top: 4px;
-  margin-left: 2%;
-  margin-right: 3%;
-  padding: 1px 2px 2px 1px;
-  box-shadow: 1px 1px 1px #2C3E50;
-  border-radius: 8px;
+  margin-top: 2px;px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px 0.5px 0.5px 0px;
+  box-shadow: 0px 0px 0px #2C3E50;
+  border-radius: 1px;
   background-color: #b2a3c6;
 }
 
  .title{
   
-        font-size: 20px;
+        font-size: 14px;
  }
 
  .title:hover,
@@ -135,49 +135,49 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
   color: blue;
-  font-size: 22px;
+  font-size: 14px;
 }
  .author:hover,
  .author:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 20px;
+  font-size: 14px;
   color: blue;
 }
 .category:hover,
  .category:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 18px;
+  font-size: 14px;
   color: blue;
 }
 .date:hover,
  .date:focus {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   transition: 0.2s ease;
-  font-size: 18px;
+  font-size: 14px;
   color: blue;
 }
 
  .author{
   font-family: 'Playball', cursive;
-  font-size: 20px;
+  font-size: 12px;
  }
  .category{
   font-family: 'Zilla Slab', serif;
-  font-size: 16px;
+  font-size: 12px;
  }
  .date{
   font-family: 'Lobster', cursive;
-  font-size: 14px;
+  font-size: 12px;
  }
  .content {
   font-family: 'Zilla Slab', serif;
-  font-size: 14px;
+  font-size: 12px;
   background-color: #ddd;
-  padding: 1px 2px 2px 2px;
-    box-shadow: 1px 1px 1px #2C3E50;
-    border-radius: 5px;
+  padding: 0px 0px 0px 0px;
+    box-shadow: 0px 0px 0px #2C3E50;
+    border-radius: 1px;
  }
  #Zilla{
   font-family: 'Zilla Slab', serif;
