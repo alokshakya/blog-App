@@ -12,7 +12,10 @@ app.get('/', function (req, res) {
   res.sendFile('ui.html',{root});
 });
 // link on home page sending file
-
+// sending bootstrap css file
+app.get('/fevicon.ico', function (req, res) {
+  res.sendFile('img/alok.ico',{root});
+});
 
 
 // sending bootstrap css file
