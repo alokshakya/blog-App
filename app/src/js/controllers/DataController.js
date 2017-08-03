@@ -47,12 +47,12 @@ CApp.controller("DataController",
       Data.allArticles(selectquery)
             .then(function(response) {
           $scope.status = response.status;
-          console.log('response '+response);
+         // console.log('response '+response);
           if(response.data.length===0){
               
              
           }
-          console.log(response.data);
+          //console.log(response.data);
           //loading 5 articles at a time.
           for (var i = 0; i < response.data.length; i++) {
            $scope.data.all_articles.push(response.data[i]);
@@ -70,8 +70,8 @@ CApp.controller("DataController",
     var data={"email":user.email,"password":user.password};
     Data.popularArticles(data)
             .success(function (success) {
-              console.log('succ '+success);
-              console.log('auth_token is '+success.auth_token);
+             // console.log('succ '+success);
+              //console.log('auth_token is '+success.auth_token);
               //store auth token in local storage using ngStorage
               $localStorage.auth_token=success.auth_token;
               $localStorage.user_details=success;
@@ -80,8 +80,8 @@ CApp.controller("DataController",
             })
             .error(function (error) {
                 $scope.status = 'Unable to login ' + error.message;
-                console.log('err '+$scope.status);
-                console.log(error);
+               // console.log('err '+$scope.status);
+               // console.log(error);
             });
   };
   // logout function
@@ -93,14 +93,14 @@ CApp.controller("DataController",
               //delete auth token in local storage using ngStorage
               $localStorage.auth_token=null;
               $localStorage.user_details=null;
-              console.log(success.message);
+             // console.log(success.message);
               $window.location.href='/signup';
                 //$scope.students = studs;
             })
             .error(function (error) {
                 $scope.status = 'unable to logut' + error.message;
-                console.log('err '+$scope.status);
-                console.log(error);
+               // console.log('err '+$scope.status);
+               // console.log(error);
             });
   };
 
@@ -120,7 +120,7 @@ CApp.controller("DataController",
 };
               Data.addLike(likedata)
               .success(function (success) {
-              console.log('succ '+success);
+             // console.log('succ '+success);
              // requst succes
 
             })
@@ -129,8 +129,8 @@ CApp.controller("DataController",
                 $scope.status = 'Unable to post article: ' + error.message;
                 $scope.add.error='Server Error';
                 $scope.add.adding=false;
-                console.log('err '+$scope.status);
-                console.log(error);
+                //console.log('err '+$scope.status);
+               // console.log(error);
             });
 
 

@@ -39,8 +39,8 @@ CApp.controller("AuthController",
       AuthService.signup(data)
             .then(function(response) {
 
-          console.log('response '+response.data);
-              console.log('response controller message '+response.data.message);
+        //  console.log('response '+response.data);
+             // console.log('response controller message '+response.data.message);
               //store auth token in local storage using ngStorage
               $scope.auth.signup_error_condition=true;
               $scope.auth.signup_error=response.data.message;
@@ -71,7 +71,7 @@ CApp.controller("AuthController",
     // when the response is available
   }, function errorCallback(response) {
     $scope.auth.user_id=AuthService.getUserId();
-    
+    $scope.auth.user_name=AuthService.getUserName();
       //alert('inside login errorCallback message in controller');
     
   });    
@@ -88,7 +88,7 @@ CApp.controller("AuthController",
             
 
         }, function(response) {
-          alert('Inside failed logout');
+          //alert('Inside failed logout');
 
           $scope.data = response.data || 'Request failed';
           $scope.status = response.status;

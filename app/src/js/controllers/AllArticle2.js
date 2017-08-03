@@ -61,8 +61,8 @@ var query=
                         return;
                       }
                 $scope.all.article_id=response.data[l-1].article_id;
-                console.log('response.data[l-1].article_id '+response.data[l-1].article_id);
-                console.log('new article_id '+$scope.all.article_id);
+               // console.log('response.data[l-1].article_id '+response.data[l-1].article_id);
+                //console.log('new article_id '+$scope.all.article_id);
                       for(var i=0;i<l;i++)
                       {
                         $scope.all.articles.push(response.data[i]);

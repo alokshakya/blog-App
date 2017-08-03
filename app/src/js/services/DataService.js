@@ -24,14 +24,14 @@ CApp.service('DataService', function($q, $http) {
     // this callback will be called asynchronously
     // when the response is available
     var le=response.data.length;
-    console.log('response.data[0].no_article_likes '+response.data[0].no_article_likes)
+    //console.log('response.data[0].no_article_likes '+response.data[0].no_article_likes)
     for(var i=0;i<le;i++)
     {
       likes[response.data[i].article_id]=response.data[i].no_article_likes;
-      console.log('likes[article_id]  '+likes[response.data[i].article_id]+' and article_id is'+response.data[i].article_id);
+     // console.log('likes[article_id]  '+likes[response.data[i].article_id]+' and article_id is'+response.data[i].article_id);
     }
   }, function errorCallback(response) {
-      console.log('inside fialed likesUpdateService failed');
+      //console.log('inside fialed likesUpdateService failed');
       return response;
   });
 
@@ -59,14 +59,14 @@ CApp.service('DataService', function($q, $http) {
     // this callback will be called asynchronously
     // when the response is available
     var le=response.data.length;
-    console.log('response.data[0].no_comments '+response.data[0].no_comments);
+    //console.log('response.data[0].no_comments '+response.data[0].no_comments);
     for(var i=0;i<le;i++)
     {
       comments[response.data[i].article_id]=response.data[i].no_comments;
-      console.log('comments[article_id]  '+comments[response.data[i].article_id]+' and article_id is'+response.data[i].article_id);
+      //console.log('comments[article_id]  '+comments[response.data[i].article_id]+' and article_id is'+response.data[i].article_id);
     }
   }, function errorCallback(response) {
-      console.log('inside fialed commentsUpdateService failed');
+     // console.log('inside fialed commentsUpdateService failed');
       return response;
   });
 

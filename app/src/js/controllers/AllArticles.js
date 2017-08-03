@@ -138,7 +138,7 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
               $scope.article.end=true;
               return;
           }
-          console.log(response.data);
+         // console.log(response.data);
           //loading 5 articles at a time.
           for (var i = 0; i < response.data.length; i++) {
            $scope.dep.articles.push(response.data[i]);
@@ -155,7 +155,7 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
         $scope.dep.fetchComment= function(){
          // alert('fetchComment pressed');
           //alert('article id is :'+article_id);
-          console.log('article id is :'+article_id);
+          //console.log('article id is :'+article_id);
 
       var selectquery=
 {
@@ -195,8 +195,8 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
     };
     // function for fetching particular Articular details
     $scope.dep.fetchArticle = function(info){
-      alert('fetchArticle pressed and name  is :'+info.name);
-          console.log('article id is :'+info.name);
+      //alert('fetchArticle pressed and name  is :'+info.name);
+        //  console.log('article id is :'+info.name);
 
       var selectquery=
 {

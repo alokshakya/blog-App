@@ -48,7 +48,7 @@ CApp.controller("AddArticle",
       $scope.add.adding=true;
     Data.addArticle(data)
             .success(function (success) {
-              console.log('succ '+success);
+              //console.log('succ '+success);
              // alert('Article id returned '+success.returning[0].article_id);
               //alert('success.data.returning.article_id '+success.data.returning);
               $scope.add.article_id=success.returning[0].article_id;
@@ -62,8 +62,8 @@ CApp.controller("AddArticle",
                 $scope.status = 'Unable to post article: ' + error.message;
                 $scope.add.error='Server Error';
                 $scope.add.adding=false;
-                console.log('err '+$scope.status);
-                console.log(error);
+               // console.log('err '+$scope.status);
+               // console.log(error);
             });
      };
 

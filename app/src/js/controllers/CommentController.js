@@ -15,8 +15,8 @@ $scope.dep.likes = function(article_id)
 {
   $scope.dep.a_likes=DataService.getLikeCount(article_id);
   $scope.dep.a_comments=DataService.getCommentCount(article_id);
-  console.log('ng-mouseover working and dep.a_likes '+$scope.dep.a_likes);
-  console.log('ng-mouseover for comment and dep.a_comments '+$scope.dep.a_comments);
+  //console.log('ng-mouseover working and dep.a_likes '+$scope.dep.a_likes);
+ // console.log('ng-mouseover for comment and dep.a_comments '+$scope.dep.a_comments);
 
 
 };
@@ -105,7 +105,7 @@ $scope.dep.likes = function(article_id)
    Data.addLike(selectquery)
             .then(function(response) {
           $scope.status = response.status;
-          console.log('response '+response);
+         // console.log('response '+response);
           if(response.data.length===0){
               
              
@@ -114,7 +114,7 @@ $scope.dep.likes = function(article_id)
           //loading 5 articles at a time.
           for (var i = 0; i < response.data.length; i++) {
            $scope.dep.liked_by.push(response.data[i].liked_by.name);
-           console.log(response.data[i].liked_by.name);
+         //  console.log(response.data[i].liked_by.name);
         } 
           $scope.dep.liked_by_busy=false;
           $scope.dep.liked_by_fetched=true;

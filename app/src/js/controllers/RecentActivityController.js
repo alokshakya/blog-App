@@ -62,24 +62,24 @@ var query=
 };
      DataService.addLike(JSON.stringify(query))
      .then (function successCallback(response){
-      console.log('published_articles.length '+ response.data[0].published_articles.length);
-      console.log('commented_on.length '+ response.data[0].commented_on.length);
-      console.log('liked_article.length '+ response.data[0].liked_article.length);
+      //console.log('published_articles.length '+ response.data[0].published_articles.length);
+      //console.log('commented_on.length '+ response.data[0].commented_on.length);
+      //console.log('liked_article.length '+ response.data[0].liked_article.length);
       for(var i=0;i<response.data[0].published_articles.length;i++)
       {
         $scope.rec.published_articles.push(response.data[0].published_articles[i]);
-        console.log('rec.published_articles.length '+ $scope.rec.published_articles.length);
+       // console.log('rec.published_articles.length '+ $scope.rec.published_articles.length);
 
       }
       for(var i=0;i<response.data[0].commented_on.length;i++)
       {
         $scope.rec.commented_on.push(response.data[0].commented_on[i]);
-        console.log('rec.commented_on.length '+ $scope.rec.commented_on.length);
+       // console.log('rec.commented_on.length '+ $scope.rec.commented_on.length);
       }
       for(var i=0;i<response.data[0].liked_article.length;i++)
       {
         $scope.rec.liked_article.push(response.data[0].liked_article[i]);
-        console.log('rec.liked_article.length '+ $scope.rec.liked_article.length);
+        //console.log('rec.liked_article.length '+ $scope.rec.liked_article.length);
       }
 
      },function errorCallback(response){
