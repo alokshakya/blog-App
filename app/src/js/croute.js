@@ -1,5 +1,5 @@
 var CApp = angular.module("UserApp", ['ngRoute','infinite-scroll']);
-CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProvider) {
+CApp.config(function($routeProvider,$httpProvider) {
     $routeProvider
     .when('/login', {
         templateUrl : 'pages/login.html',
@@ -94,7 +94,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
         }]);
       */
  
-}]);
+});
 
 CApp.factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
   return {

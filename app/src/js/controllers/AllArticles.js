@@ -130,7 +130,7 @@ CApp.controller("AllArticles", function ($scope, $http, $templateCache) {
       ]
   }
 };
-      $http({method: 'POST', url: 'http://data.c100.hasura.me/v1/query', data:selectquery, cache: $templateCache}).
+      $http({method: 'POST', url: 'http://data.alokshakya.hasura.me/v1/query', data:selectquery, cache: $templateCache}).
         then(function(response) {
           $scope.status = response.status;
           if(response.data.length===0){

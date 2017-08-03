@@ -5,7 +5,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
   var auth_token;
   var user_id;
   var role;
-  var baseUrl='http://auth.c100.hasura.me';
+  var baseUrl='http://auth.alokshakya.hasura.me';
  
   function loadUserCredentials() {
     var token = window.localStorage.getItem(BearerToken);
@@ -56,7 +56,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
 
      }
     };
-    $http.post('http://data.c100.hasura.me/v1/query',userdata)
+    $http.post('http://data.alokshakya.hasura.me/v1/query',userdata)
     .then(function successCallback(response){
       //alert('user name inside service response.data.name '+response.data[0].name);
       window.localStorage.setItem('user_name',response.data[0].name);
