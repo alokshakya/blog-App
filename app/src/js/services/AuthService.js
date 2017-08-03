@@ -68,7 +68,7 @@ CApp.service('AuthService', function($q, $http, USER_ROLES) {
 
     });
 
-        window.location.href='#home';
+        window.location.href='/';
   // return $window.location.href='/#/home';
     // when the response is available
     return response;

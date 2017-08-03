@@ -86,6 +86,9 @@
 
 <div ng-show="add.preview_loading"><img alt="Loading Preview ...." src="img/loading.gif">Loading Preview ....
 </div>
+<div>
+    <p  class="form-title" align="center">Article Preview</p>
+</div>
 <div ng-repeate="article in add.article">
 <div class="article" ng-controller="CommentController" ng-mouseover="dep.likes(info.article_id)">
             <div class="title">Title :{{article.title}}

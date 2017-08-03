@@ -1,0 +1,105 @@
+<style type="text/css">
+.form-title{
+  font-size: 32px;
+  color: blue;
+  font-style: bolder;
+  font-weight: 900;
+}
+.Title
+{
+  font-size: 20px;
+  font-family: 'Zilla Slab', serif;
+  color: green;
+}
+@media only screen and (max-width: 893px)
+{
+  .form-title{
+  font-size: 24px;
+}
+.Title
+{
+  font-size: 16px;
+}
+
+}
+@media only screen and (max-width: 690px)
+{
+  .form-title{
+  font-size: 16px;
+}
+.Title
+{
+  font-size: 12px;
+}
+
+}
+@media only screen and (max-width: 400px)
+{
+  .form-title{
+  font-size: 12px;
+}
+.Title
+{
+  font-size: 8px;
+}
+
+}
+</style>
+<div ng-controller="RecentActivityController">
+    <div ng-show="rec.error_condition">{{rec.error}}</div>
+	<div class="form-title"><p  class="form-title" align="center">Published Articles</p></div>
+	<div ng-repeat="a in rec.published_articles">
+	<div class="row">
+	<li class="Title col-md-6 "><a ng-click="rec.fetchArticle(a.article_id,1)">Article Title : {{a.title}}</a></li>
+	<li  class="Title col-md-4 ">Published on : {{a.created |date:'MMM d, y HH:mm:ss a' }}</li>
+	</div>
+	<div ng-show="rec.article_fetch_error_condition">{{rec.article_fetch_error}}</div>
+
+	
+		
+	</div>
+	<div ng-show="rec.article_fetched">
+	<article-Info info="rec.article_article"></article-Info>
+		
+	</div>	
+	<br><br><hr><br><br>
+	<div class="form-title"><p  class="form-title" align="center">Commented on Articles</p></div>
+	<ul>
+	<div ng-repeat="b in rec.commented_on">
+	<div class="row">
+	<li class="Title col-md-6 "><a ng-click="rec.fetchArticle(b.commented_on_article.article_id,2)">Article Title : {{b.commented_on_article.title}}</a></li>
+	<li  class="Title col-md-6 ">Comment : {{b.content }} &nbsp;&nbsp;&nbsp;Time: {{b.created|date :'MMM d, y HH:mm:ss a'}}</li>
+	</div>
+	
+    <div ng-show="rec.article_fetch_error_condition">{{rec.article_fetch_error}}</div>
+	
+		
+	</div>
+	</ul>
+	<div ng-show="rec.comment_fetched">
+	<article-Info info="rec.comment_article"></article-Info>
+		
+	</div>
+	<br><br><hr><br><br>
+	<div class="form-title"><p  class="form-title" align="center"> Articles Liked </p></div>
+	<ul>
+	<div ng-repeat="c in rec.liked_article">
+	<div class="row">
+	<li class="Title col-md-6 "><a ng-click="rec.fetchArticle(c.liked_on_article.article_id,3)">Article Title : {{c.liked_on_article.title}}</a></li>
+	<li  class="Title col-md-4 ">Published on : {{c.liked_on_article.created |date :'MMM d, y HH:mm:ss a'}}</li>
+	</div>
+	<div ng-show="rec.article_fetch_error_condition">{{rec.article_fetch_error}}</div>
+
+	
+		
+	</div>
+	</ul>
+	<div ng-show="rec.like_fetched">
+	<article-Info info="rec.like_article"></article-Info>
+		
+	</div>
+
+
+
+	
+</div>

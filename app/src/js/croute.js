@@ -8,7 +8,7 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
     })
     .when('/home', {
         templateUrl : 'pages/chome.html',
-        controller:'DataController'
+        controller:'AllArticle2'
      
     })
     .when('/add', {
@@ -44,9 +44,9 @@ CApp.config(['$routeProvider', '$httpProvider',function($routeProvider,$httpProv
         templateUrl : 'pages/other.html',
         controller: 'OtherController'
     })
-    .when('/all2', {
-        templateUrl : 'pages/allArticle2.html',
-        controller: 'AllArticle2'
+    .when('/activity', {
+        templateUrl : 'pages/recentActivity.html',
+        controller: 'RecentActivityController'
     })
   
     .otherwise({

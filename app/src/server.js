@@ -216,3 +216,10 @@ app.get('/pages/trending.html' , function (req, res) {
 app.get('/js/controllers/TrendingController.js' , function (req, res) {
   res.sendFile('js/controllers/TrendingController.js' ,{root});
 });
+//send RecentActivity Controller and recentActivity html
+app.get('/pages/recentActivity.html' , function (req, res) {
+  res.sendFile('pages/recentActivity.html' ,{root});
+});
+app.get('/js/controllers/RecentActivityController.js' , function (req, res) {
+  res.sendFile('js/controllers/RecentActivityController.js' ,{root});
+});

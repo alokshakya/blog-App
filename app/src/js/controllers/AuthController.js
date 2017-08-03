@@ -2,6 +2,8 @@ CApp.controller("AuthController",
   ['$scope','$rootScope','$http','$templateCache','$location', '$window','AuthService',
   function ($scope,$rootScope, $http, $templateCache,$location, $window, AuthService) {
     $scope.auth={};
+    
+
     $scope.auth.signup_error_condition=false;
     $scope.auth.signup_error='';
     $scope.auth.login_error_condition=false;
@@ -11,12 +13,17 @@ CApp.controller("AuthController",
     $scope.auth.login_form=false;
     $scope.auth.signup_form=false;
     $scope.auth.user_id=AuthService.getUserId();
+    $scope.auth.user_name=AuthService.getUserName();
    
     if($scope.auth.user_id){
+      $scope.auth.logoutButton=true;
+      $scope.auth.loginButton=false;
       $window.location.href='/#/home';
     }
     else if(!$scope.auth.user_id){
-      $window.location.href='/#/login';
+         $scope.auth.loginButton=true;
+         $scope.auth.logoutButton=false;
+         $window.location.href='/#/login';
     }
     
 
@@ -54,7 +61,8 @@ CApp.controller("AuthController",
     .then(function successCallback(response) {
     // this callback will be called asynchronously
     //alert('inside login successCallback in controller ');
-    $scope.auth.login_error_condition=true;
+    $scope.auth.user_name=AuthService.getUserName();
+       $scope.auth.login_error_condition=true;
     $scope.auth.login_error=response.data.message;
  
     // $window.location.href='/#/home';
@@ -62,6 +70,8 @@ CApp.controller("AuthController",
   
     // when the response is available
   }, function errorCallback(response) {
+    $scope.auth.user_id=AuthService.getUserId();
+    
       //alert('inside login errorCallback message in controller');
     
   });    
