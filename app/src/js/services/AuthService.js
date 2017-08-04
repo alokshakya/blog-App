@@ -96,7 +96,7 @@ setUserName();
   setUserName();
 
  //function for inserting user in database while signing up
-  var setUserInData= function(name,id) {
+  var setUserInData= function() {
    // alert('inside setUserName function');
     var userdata=
     {
@@ -105,8 +105,8 @@ setUserName();
         "table":"user_details",
         "objects":[
       {
-        "user_id":id,
-        "name":name
+        "user_id":window.localStorage.getItem('user_id'),
+        "name":window.localStorage.getItem('user_name')
       }
       ]
        
@@ -138,7 +138,7 @@ setUserName();
     window.localStorage.setItem('role',response.data.hasura_roles);
     window.localStorage.setItem('user_name',name);
     storeUserCredentials(response.data.auth_token);
-    setUserInData(name,response.data.hasura_id);
+    setUserInData();
    //alert('after adding in database in signup function ');
     window.location.href='/';
     
@@ -150,6 +150,7 @@ setUserName();
   });
   
   };
+  setUserInData();
  
   var logout = function() {
     return $http.post(baseUrl+'/user/logout')
