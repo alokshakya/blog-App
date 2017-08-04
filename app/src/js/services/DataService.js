@@ -1,5 +1,5 @@
 CApp.service('DataService', function($q, $http) {
-  var baseUrl='http://data.c100.hasura.me/v1/query';
+  var baseUrl='http://data.alokshakya.hasura.me/v1/query';
   var likes=[];
   var comments=[];
 
