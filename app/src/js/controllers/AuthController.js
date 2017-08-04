@@ -1,6 +1,6 @@
 CApp.controller("AuthController",
-  ['$scope','$rootScope','$http','$templateCache','$location', '$window','AuthService',
-  function ($scope,$rootScope, $http, $templateCache,$location, $window, AuthService) {
+  
+  function ($scope,$rootScope, $http, $templateCache,$location, $window, AuthService,DataService) {
     $scope.auth={};
     
 
@@ -43,6 +43,7 @@ CApp.controller("AuthController",
         //  console.log('response '+response.data);
              // console.log('response controller message '+response.data.message);
               //store auth token in local storage using ngStorage
+              $scope.auth.user_name=AuthService.getUserName();
               $scope.auth.signup_error_condition=true;
               $scope.auth.signup_error=response.data.message;
 
@@ -62,11 +63,12 @@ CApp.controller("AuthController",
     .then(function successCallback(response) {
     // this callback will be called asynchronously
     //alert('inside login successCallback in controller ');
+    $scope.auth.user_id=AuthService.getUserId();
     $scope.auth.user_name=AuthService.getUserName();
        $scope.auth.login_error_condition=true;
     $scope.auth.login_error=response.data.message;
     //alert('user from login Controller successCallback '+AuthService.getUserName());
-     $window.location.href='/';
+    // $window.location.href='/';
   // return $window.location.href='/#/home';
   
     // when the response is available
@@ -74,7 +76,7 @@ CApp.controller("AuthController",
     $scope.auth.user_id=AuthService.getUserId();
     $scope.auth.user_name=AuthService.getUserName();
     //alert('user from login Controller errorCallback '+AuthService.getUserName());
-    window.location.href='/';
+   // window.location.href='/';
       //alert('inside login errorCallback message in controller');
     
   });    
@@ -100,4 +102,4 @@ CApp.controller("AuthController",
             
   };
 
-}]);
+});

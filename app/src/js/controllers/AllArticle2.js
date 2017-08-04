@@ -51,7 +51,8 @@ var query=
 };
 //alert('query '+query);
 //console.log('article_id after query '+$scope.all.article_id);
-            $http.post('http://data.alokshakya.hasura.me/v1/query',JSON.stringify(query))
+            //$http.post('http://data.alokshakya.hasura.me/v1/query',JSON.stringify(query))
+            DataService.addLike(JSON.stringify(query))
               .then(function successCallback(response) {
                 var l=response.data.length;
                       if(l===0)

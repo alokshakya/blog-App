@@ -164,7 +164,8 @@
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
     <div class="login-form">
       <div class="sign-in-htm">
-        <div class="group">
+      <form name="login">       
+       <div class="group">
           <label for="user" class="label">Email</label>
           <input id="user" type="email" class="input" ng-model="user.email">
         </div>
@@ -183,33 +184,43 @@
           <a href="#forgot">Forgot Password?</a>
         </div>
         -->
+        </form>
+
       </div>
       <div class="sign-up-htm">
-        <div class="group">
-          <label for="user" class="label">Name</label>
-          <input id="user" type="text" class="input" ng-model="user.name">
+      <form name="signUp" ng-submit="auth.signup(user)" novalidate>
+        <div class="group" ng-class="{ 'has-error' : signUp.username.$invalid && !signUp.username.$pristine }">
+          <label for="user" class="label"> Username</label>
+          <input id="user" type="text" name="username" class="input" ng-model="user.name" required>
+          <p ng-show="signUp.username.$invalid && !signUp.username.$pristine" class="help-block">Username is required</p>
         </div>
-        <div class="group">
+        <div class="group" ng-class="{ 'has-error' : signUp.email.$invalid && !signUp.email.$pristine && signUp.email.$error.email}">
           <label for="pass" class="label">Email Address</label>
-          <input id="pass" type="email" class="input" ng-model="user.email">
+          <input id="pass" name="email" type="email" class="input" ng-model="user.email" required>
+          
+          <p ng-show="signUp.email.$invalid && !signUp.email.$pristine" class="help-block">Email is not valid</p>
+          
+
         </div>
-        <div class="group">
+        <div class="group" ng-class="{ 'has-error' : signUp.pwd1.$invalid && !signUp.pwd1.$pristine }">
           <label for="pass" class="label">Password</label>
-          <input id="pass" type="password" class="input" data-type="password" ng-model="user.password">
+          <input id="pass" type="password" name="pwd1" class="input" data-type="password" ng-model="user.password" required>
+          <p ng-show="signUp.pwd1.$invalid && !signUp.pwd1.$pristine" class="help-block">Password is required</p>
         </div>
-        <div class="group">
-          <label for="pass" class="label">Repeat Password</label>
-          <input id="pass" type="password" class="input" data-type="password">
+        <div class="group" ng-class="{ 'has-error' : signUp.pwd2.$invalid && !signUp.pwd2.$pristine }">
+          <label for="pass" class="label">Confirm Password</label>
+          <input id="pass" type="password" name="pwd2"  class="input" data-type="password" ng-model="user.rep" required>
+          <p ng-show="signUp.pwd2.$invalid && !signUp.pwd2.$pristine" class="help-block">Confirm Password is requred</p>
         </div>
         
         <div class="group">
-          <input type="submit" class="button" value="Sign Up" ng-click="auth.signup(user)">
+          <input type="submit" class="button" value="Sign Up" ng-disabled="signUp.$invalid">
         </div>
         <div ng-show="auth.signup_error_condition" style="color: red; font-size: 20px;">
         {{auth.signup_error}}</div>
 
         <div class="hr"></div>
-   
+    </form>
       </div>
     </div>
   </div>

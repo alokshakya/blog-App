@@ -118,7 +118,7 @@ CApp.controller("DataController",
       }]
   }
 };
-              Data.addLike(likedata)
+              DataService.addLike(likedata)
               .success(function (success) {
              // console.log('succ '+success);
              // requst succes

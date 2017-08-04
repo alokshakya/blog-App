@@ -1,5 +1,5 @@
 CApp.factory('Data', ['$http',  '$window', function($http, $window){
-        var baseUrl = "http://data.alokshakya.hasura.me/v1/query";
+        var baseUrl = "http://data.c100.hasura.me/v1/query";
         var Data={};
 Data.addUser_Details = function(data){
     return $http.post(baseUrl,data);
